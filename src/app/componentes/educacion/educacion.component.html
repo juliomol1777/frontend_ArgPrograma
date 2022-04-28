@@ -1,0 +1,38 @@
+<!--
+      <article>
+        <div id="education">
+          <div class="card-titles">
+            <h2>Educación</h2>
+            <div class="btn-edit" *ngIf="isUserLogged" ><a href="#" class="btn-right"><i class="fa fa-plus"></i></a>
+            </div>
+          </div>
+
+          <div>
+            <ul class="items-list" id="eduList">
+              <li *ngFor="let educacion of educacionList">
+                <div class="data-container">
+                  <a href="#">
+                    <div class="logo-image-container"><img id="edu-img" class="logo-image"
+                        [src]="educacion.img"></div>
+                    <div class="list-info">
+                      <div>
+                        <h3 id="edu-school">{{ educacion.school }} </h3>
+                        <p><span id="edu-title">{{ educacion.title }}</span>, <span id="edu-career">{{ educacion.career }}</span>,
+                          <span id="edu-score">{{ educacion.score }}</span>
+                        </p>
+                        <p><time id="edu-start">{{ educacion.start }}</time> - <time id="edu-end">{{ educacion.end }}</time></p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div *ngIf="isUserLogged" class="data-control">
+                  <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i></a></div>
+                  <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-trash"></i></a></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      -->
+

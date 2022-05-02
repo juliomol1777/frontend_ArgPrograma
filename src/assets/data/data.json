@@ -23,7 +23,8 @@
         "mode": "Jornada parcial",
         "start": "mar 2019",
         "end": "actualidad",
-        "timeElapsed" : "2 años y 6 meses"
+        "timeElapsed" : "2 años y 6 meses",
+        "place" : "Guadalajara, Mexico"
       }
     ],
     "education": [
@@ -84,6 +85,6 @@
         "name": "Lanterns 19/09"
       }
     ]
-  
-  
+
+
 }

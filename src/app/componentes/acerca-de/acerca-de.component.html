@@ -1,4 +1,15 @@
 <article class="card mat-card">
+  <div id="about">
+    <div class="card-titles">
+      <h2>Acerca de</h2>
+      <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i> <!--onclick="showEditAboutModal()"-->></a>
+      </div>
+    </div>
+      <div>{{miPorfolio.about}}</div>
+
+  </div>
+  </article>
+    <article class="card mat-card">
   <div id="experience">
     <div class="card-titles">
       <h2>Experiencia</h2>
@@ -7,18 +18,18 @@
     </div>
     <div>
       <ul class="items-list" id="expList">
-        <li>
+        <li *ngFor="let experiencia of experienciaList">
           <div class="data-container">
             <a href="#">
               <div class="logo-image-container"><img id="exp-img" class="logo-image"
                   src="https://free-images.com/sm/4fef/transweb_logo_png.jpg"></div>
               <div class="list-info">
                 <div>
-                  <h3 id="exp-position">Backend Developer</h3>
-                  <p><span id="exp-company">Pixar</span> - <span id="exp-mode">Jornada parcial</span></p>
-                  <h4><span id="exp-initial">mar 2019</span> – <span id="exp-end">actualidad</span> - <span
-                      id="exp-time">2 años y 6 meses</span></h4>
-                  <h4 id="exp-place">Guadalajara y alrededores, México</h4>
+                  <h3 id="exp-position">{{experiencia.position}}</h3>
+                  <p><span id="exp-company">{{experiencia.company}}</span> - <span id="exp-mode">{{experiencia.mode}}</span></p>
+                  <h4><span id="exp-initial">{{experiencia.start}}</span> – <span id="exp-end">{{experiencia.end}}</span> - <span
+                      id="exp-time">{{experiencia.timeElapsed}}</span></h4>
+                  <h4 id="exp-place">{{experiencia.place}}</h4>
                 </div>
               </div>
             </a>
@@ -33,5 +44,4 @@
       </ul>
     </div>
   </div>
-
   </article>

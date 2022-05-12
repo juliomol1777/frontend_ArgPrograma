@@ -2,19 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 @Component({
-  selector: 'app-aptitudes',
-  templateUrl: './aptitudes.component.html',
-  styleUrls: ['./aptitudes.component.css']
+  selector: 'app-experiencia',
+  templateUrl: './experiencia.component.html',
+  styleUrls: ['./experiencia.component.css']
 })
-export class AptitudesComponent implements OnInit {
+export class ExperienciaComponent implements OnInit {
 
-  miPorfolio:any;
+  experienciaList:any;
 
   constructor(private datosPorfolio:PorfolioService) { }
 
   ngOnInit(): void {
     this.datosPorfolio.obtenerDatosPersona(1).subscribe( data => {
-      this.miPorfolio = data;
+      this.experienciaList = data.experience;
     })
   }
 

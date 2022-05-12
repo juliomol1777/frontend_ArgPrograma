@@ -8,12 +8,12 @@ import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { AptitudesComponent } from './componentes/aptitudes/aptitudes.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
-import { NavComponent } from './componentes/nav/nav.component';
 import { IniciarSesionComponent } from './componentes/iniciar-sesion/iniciar-sesion.component';
 import { PorfolioComponent } from './componentes/porfolio/porfolio.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PorfolioService } from './servicios/porfolio.service';
 import { InterceptorService } from './servicios/interceptor.service';
+import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +23,9 @@ import { InterceptorService } from './servicios/interceptor.service';
     EducacionComponent,
     AptitudesComponent,
     ProyectosComponent,
-    NavComponent,
     IniciarSesionComponent,
-    PorfolioComponent
+    PorfolioComponent,
+    ExperienciaComponent
   ],
   imports: [
     BrowserModule,

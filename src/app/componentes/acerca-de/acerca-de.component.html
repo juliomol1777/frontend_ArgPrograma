@@ -1,47 +1,107 @@
 <article class="card mat-card">
-  <div id="about">
-    <div class="card-titles">
-      <h2>Acerca de</h2>
-      <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i> <!--onclick="showEditAboutModal()"-->></a>
-      </div>
-    </div>
-      <div>{{miPorfolio.about}}</div>
 
+<div id="info" style="padding: 16px">
+  <div id="info-img">
+    <img id="info-user-img" class="profile-image"
+      [src]="persona.image">
+    <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i>
+          <!--onclick="showEditProfileModal()"-->></a></div>
   </div>
-  </article>
-    <article class="card mat-card">
-  <div id="experience">
-    <div class="card-titles">
-      <h2>Experiencia</h2>
-      <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-plus"></i> <!--onclick="showNewExpModal()"-->></a>
-      </div>
-    </div>
+</div>
+  <div id="info-data">
     <div>
-      <ul class="items-list" id="expList">
-        <li *ngFor="let experiencia of experienciaList">
-          <div class="data-container">
-            <a href="#">
-              <div class="logo-image-container"><img id="exp-img" class="logo-image"
-                  src="https://free-images.com/sm/4fef/transweb_logo_png.jpg"></div>
-              <div class="list-info">
-                <div>
-                  <h3 id="exp-position">{{experiencia.position}}</h3>
-                  <p><span id="exp-company">{{experiencia.company}}</span> - <span id="exp-mode">{{experiencia.mode}}</span></p>
-                  <h4><span id="exp-initial">{{experiencia.start}}</span> – <span id="exp-end">{{experiencia.end}}</span> - <span
-                      id="exp-time">{{experiencia.timeElapsed}}</span></h4>
-                  <h4 id="exp-place">{{experiencia.place}}</h4>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="data-control">
-            <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"
-                  onclick="showEditExpModal('Pixar')"></i></a></div>
-            <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-trash"></i>
-              <!--onclick="deleteExp('Pixar')"-->></a></div>
-          </div>
-        </li>
-      </ul>
+      <div>
+      <span><h1 id="info-name">{{persona.fullname}}</h1></span>
+    </div>
+      <div><span id="info-position">{{persona.position}}</span> en <span id="info-company">CONICET</span></div>
+      <div id="info-contact">
+        <span id="info-ubication">{{persona.ubication}}</span>
+        <span><a href="#">Información de contacto</a></span>
+      </div>
+    <div>
+      <button *ngIf="usuarioAutenticado" class="btn btn-primary" data-bs-toggle="modal"
+      data-bs-target="#modalEncabezado" (click)="mostrarDatosAcercaDe()">Editar</button>
     </div>
   </div>
+</div>
+<div id="info-about">
+  <div class="card-titles">
+    <h2>Acerca de</h2>
+    <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i> <!--onclick="showEditAboutModal()"-->></a>
+    </div>
+  </div>
+    <div>{{persona.about}}</div>
+</div>
+<!--
+    <div>
+    <ul id="info-details">
+      <li><a href="#">
+          <img id="info-company-img"
+            [src]="persona.company.img">
+          <h2 id="info-company-name">{{persona.company.name}}</h2>
+        </a></li>
+      <li><a href="#">
+          <img id="info-school-img" [src]="persona.school.img">
+          <h2 id="info-school-name">{{persona.school.name}}</h2>
+        </a></li>
+    </ul>
+    <div id="info-actions">
+      <button type="button" class="btn btn-primary me-4">Tengo interés en</button>
+      <button type="button" class="btn btn-light">Añadir Sección</button>
+      <button type="button" class="btn btn-light">Más</button>
+    </div>
+  </div>
+  -->
+  <!-- Modal -->
+<div class="modal fade" id="modalEncabezado" tabindex="-1" aria-labelledby="tituloModalEncabezado" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="tituloModalEncabezado">Editar Encabezado</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="form">
+                <div>
+                  <div class="mb-3">
+                      <label for="fullName" class="form-label">Apellido y Nombre</label>
+                      <input type="text" class="form-control" id="fullName" formControlName="fullName">
+                      <div *ngIf="fullName?.invalid && fullName?.touched">
+                          <div *ngIf="fullName?.errors?.['required']" class="text-danger">
+                              El apellido y nombre es requerido.
+                          </div>
+                          <div *ngIf="fullName?.errors?.['minlength']" class="text-danger">
+                             El apellido y nombre debe tener como  mínimo 5 caracteres.
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="mb-3">
+                      <label for="position" class="form-label">Posición</label>
+                      <input type="text" class="form-control" id="position" formControlName="position">
+                    </div>
+                      <div class="mb-3">
+                          <label for="ubication" class="form-label">Lugar de residencia</label>
+                          <input type="text" class="form-control" id="ubication" formControlName="ubication">
+                      </div>
+                      <div class="mb-3">
+                          <label for="url" class="form-label">Url de la imagen</label>
+                          <input type="text" class="form-control" id="url" formControlName="url">
+                      </div>
+                      <div class="mb-3">
+                        <label for="about" class="form-label">Acerca de</label>
+                        <input type="text" class="form-control" id="about" formControlName="about">
+                    </div>
+                  </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" id="cerrarModalEncabezado" class="btn btn-secondary"
+                  data-bs-dismiss="modal">Salir</button>
+              <button type="button" class="btn btn-primary" (click)="guardarDatosAcercaDe()">Guardar</button>
+          </div>
+      </div>
+  </div>
+</div>
+
   </article>

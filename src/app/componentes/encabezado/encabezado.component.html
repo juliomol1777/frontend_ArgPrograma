@@ -1,42 +1,40 @@
-  <header>
-    <div class="card mat-card" id="first-card">
-      <div id="profile-background"><img id="info-back-img"
-          src="https://png.pngtree.com/thumb_back/fw800/background/20190223/ourmid/pngtree-black-shading-red-shard-geometry-banner-background-shadingred-debrisred-glowgeometry-image_80184.jpg">
-      </div>
-      <div id="info" style="padding: 16px">
-        <div id="info-img">
-          <img id="info-user-img" class="profile-image"
-            src="https://i2.wp.com/imagenes.milenio.com/E-yJnq9EhkZhWaU7T_2utkyTymQ=/958x596/smart/https://www.milenio.com/uploads/media/2018/10/05/steve-jobs-perdio-vida-consecuencia_0_199_1193_742.jpg?w=640&ssl=1">
-          <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i>
-                <!--onclick="showEditProfileModal()"-->></a></div>
-        </div>
-        <div id="info-data">
-          <div>
-            <h1 id="info-name">{{miPorfolio.name}}</h1>
-            <div><span id="info-position">{{miPorfolio.position}}</span> en <span id="info-company">CONICET</span></div>
-            <div id="info-contact">
-              <span id="info-ubication">{{miPorfolio.ubication}}</span>
-              <span><a href="#">Información de contacto</a></span>
-            </div>
-          </div>
-          <ul id="info-details">
-            <li><a href="#">
-                <img id="info-company-img"
-                  src="https://convocatorias.conicet.gov.ar/wp-content/uploads/logo-CONICET_opt.png">
-                <h2 id="info-company-name">CONICET</h2>
-              </a></li>
-            <li><a href="#">
-                <img id="info-school-img" src="https://inerciacero.files.wordpress.com/2011/07/logo-uba.png">
-                <h2 id="info-school-name">Universidad de Buenos Aires</h2>
-              </a></li>
-          </ul>
-        </div>
-        <div id="info-actions">
-          <button type="button" class="btn btn-primary me-4">Tengo interés en</button>
-          <button type="button" class="btn btn-light">Añadir Sección</button>
-          <button type="button" class="btn btn-light">Más</button>
-        </div>
-      </div>
-    </div>
-  </header>
+<header>
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Manuel R Sadosky</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light">
+            <i class="grey-text fab fa-facebook-square fa-2x"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light">
+            <i class="grey-text fab fa-instagram fa-2x"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light">
+            <i class="grey-text fab fa-twitter fa-2x"></i>
+          </a>
+        </li>
+      </ul>
+
+      <!--<button *ngIf="!isUserLogged" class="btn btn-outline-success my-2 my-sm-0" routerLink="/login">Login</button>
+      <button *ngIf="isUserLogged" class="btn btn-outline-success my-2 my-sm-0" routerLink="/logout" (click)="logout()">Logout</button>
+      -->
+    </div>
+
+  </nav>
+
+  <div class="card mat-card" id="first-card">
+    <div id="profile-background"><img id="info-back-img">
+        <!--[src]="persona.backImage">-->
+    </div>
+      </div>
+
+</header>

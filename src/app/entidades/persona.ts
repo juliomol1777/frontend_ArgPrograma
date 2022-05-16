@@ -5,9 +5,11 @@ export class Persona{
   ubication:string;
   about:string;
   image:string;
+  image_background:string;
+  email:string;
 
  constructor(id:number, fullname:string,   position:string, ubication:string, about:string,
-             image:string)
+             image:string, image_background:string, email:string)
  {
 
      this.id=id;
@@ -16,6 +18,8 @@ export class Persona{
      this.ubication=ubication;
      this.about=about;
      this.image=image;
+     this.image_background=image_background;
+     this.email=email;
  }
 
 }

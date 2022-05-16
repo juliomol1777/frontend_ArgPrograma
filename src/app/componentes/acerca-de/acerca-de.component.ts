@@ -20,7 +20,9 @@ export class AcercaDeComponent implements OnInit {
       position:['',[Validators.required]],
       ubication:['',[Validators.required]],
       about:['',[Validators.required]],
-      url:['https://',[Validators.required, Validators.pattern('https?://.+')]]
+      url:['https://',[Validators.required, Validators.pattern('https?://.+')]],
+      image_background:['https://',[Validators.required, Validators.pattern('https?://.+')]],
+      email:['', [Validators.required, Validators.email ]]
     })
    }
 
@@ -45,8 +47,10 @@ export class AcercaDeComponent implements OnInit {
       let ubication=this.form.get("ubication")?.value;
       let about=this.form.get("about")?.value;
       let url=this.form.get("url")?.value;
+      let image_background=this.form.get("image_background")?.value;
+      let email=this.form.get("email")?.value;
 
-      let personaEditar=new Persona(this.persona.id,fullname,position,ubication, about, url);
+      let personaEditar=new Persona(this.persona.id,fullname,position,ubication, about, url, image_background, email);
       this.datosPorfolio.editarDatosPersona(personaEditar).subscribe({next: (d) => {
         this.persona=personaEditar;
         document.getElementById("cerrarModalEncabezado")?.click();
@@ -67,6 +71,8 @@ export class AcercaDeComponent implements OnInit {
     this.form.get("ubication")?.setValue(this.persona.ubication);
     this.form.get("about")?.setValue(this.persona.about);
     this.form.get("url")?.setValue(this.persona.image);
+    this.form.get("image_background")?.setValue(this.persona.image_background);
+    this.form.get("email")?.setValue(this.persona.email);
   }
 
 }

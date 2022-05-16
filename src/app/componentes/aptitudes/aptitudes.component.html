@@ -5,26 +5,14 @@
     </div>
   </div>
   <ol class="items-list">
-    <li>
+    <li *ngFor="let aptitudes of aptitudesList">
       <div class="aptitude-info">
         <a href="#">
-          <p><span>Resolución de problemas !</span> - 2</p>
+          <p><span>{{aptitudes.name}}</span> - 2</p>
           <div class="progress">
+            {{aptitudes.progress}}
             <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 75%"
               aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <p><span>Nikolai Emmanuel Bayro Jablonski y 2</span> contacto han validado esta aptitud.</p>
-        </a>
-      </div>
-    </li>
-
-    <li>
-      <div class="aptitude-info">
-        <a href="#">
-          <p><span>Diseño de sistemas</span></p>
-          <div class="progress">
-            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 15%"
-              aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
         </a>
       </div>

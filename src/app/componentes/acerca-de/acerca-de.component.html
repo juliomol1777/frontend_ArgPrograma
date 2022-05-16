@@ -1,4 +1,8 @@
-<article class="card mat-card">
+<article>
+  <div class="card mat-card">
+    <div id="profile-background">
+      <img id="info-back-img" [src]="persona.image_background">
+    </div>
 
 <div id="info" style="padding: 16px">
   <div id="info-img">
@@ -24,13 +28,17 @@
     </div>
   </div>
 </div>
-<div id="info-about">
+</div>
+<div class="card mat-card">
+  <div id="info-about">
   <div class="card-titles">
+
     <h2>Acerca de</h2>
     <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i> <!--onclick="showEditAboutModal()"-->></a>
     </div>
   </div>
     <div>{{persona.about}}</div>
+</div>
 </div>
 <!--
     <div>
@@ -92,6 +100,14 @@
                         <label for="about" class="form-label">Acerca de</label>
                         <input type="text" class="form-control" id="about" formControlName="about">
                     </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">email</label>
+                      <input type="text" class="form-control" id="email" formControlName="email">
+                  </div>
+                  <div class="mb-3">
+                    <label for="image_background" class="form-label">banner</label>
+                    <input type="text" class="form-control" id="image_background" formControlName="image_background">
+                </div>
                   </div>
               </form>
           </div>

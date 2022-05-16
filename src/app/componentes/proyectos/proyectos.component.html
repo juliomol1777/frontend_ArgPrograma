@@ -6,18 +6,26 @@
   </div>
   <div class="achivements">
     <ol class="items-list">
-      <li>
-        <h3>e-Farmacia s</h3>
-        <div>
-          Detalle de lo desarrollado
+      <li *ngFor="let proyecto of proyectosList">
+        <div class="data-container">
+          <a href="#">
+            <div class="list-info">
+              <div>
+                <h3 id="proye-name">{{proyecto.name}} </h3>
+                <p>
+                  <span id="proye-info">{{proyecto.info}}</span>
+                </p>
+              </div>
+            </div>
+          </a>
         </div>
-      </li>
-      <li>
-        <h3>Portfolio web</h3>
-        <div>
-          Detalle de lo desarrollado
+        <!--
+        <div *ngIf="isUserLogged" class="data-control">
+          <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i></a></div>
+          <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-trash"></i></a></div>
         </div>
+        -->
       </li>
-    </ol>
+      </ol>
   </div>
 </article>

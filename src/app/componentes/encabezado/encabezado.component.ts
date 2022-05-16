@@ -14,7 +14,7 @@ export class EncabezadoComponent implements OnInit {
   constructor(private datosPorfolio:PorfolioService) { }
 
   ngOnInit(): void {
-    this.datosPorfolio.obtenerDatosPersona(9).subscribe( data => {
+    this.datosPorfolio.obtenerDatosPersona(1).subscribe( data => {
       console.log("Datos personales" + JSON.stringify(data));
       //this.miPorfolio = data[0];
       this.persona = data;

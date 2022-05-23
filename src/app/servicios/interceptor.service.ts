@@ -6,10 +6,10 @@ import { AutenticacionService } from './autenticacion.service';
 @Injectable({
   providedIn: 'root'
 })
-export class InterceptorService implements HttpInterceptor{
+export class InterceptorService /*implements HttpInterceptor*/{
 
   constructor(private autenticacionService : AutenticacionService) {}
-
+  /*
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     var currentUser = this.autenticacionService.usuarioAutenticado;
     if(currentUser && currentUser.accessToken){
@@ -21,4 +21,5 @@ export class InterceptorService implements HttpInterceptor{
     }
     return next.handle(req);
   }
+  */
 }

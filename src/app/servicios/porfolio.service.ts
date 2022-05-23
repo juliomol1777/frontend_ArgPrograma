@@ -23,6 +23,7 @@ export class PorfolioService {
 
   constructor(private http: HttpClient) { }
 
+
   obtenerDatosPersona(id:number): Observable<any>{
     //console.log("hola")
     return this.http.get(this.url+ this.persona +"/"+id);

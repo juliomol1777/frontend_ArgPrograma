@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Persona } from 'src/app/entidades/persona';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
 
 @Component({
@@ -10,35 +11,60 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 })
 export class AcercaDeComponent implements OnInit {
 
+
   persona!:Persona; //el signo ! es para usar sin inicializar
-  usuarioAutenticado:boolean=true;//al inicio   debe estar en false
+  usuarioAutenticado:Boolean = true;//al inicio   debe estar en false
   form:FormGroup;
 
-  constructor(private datosPorfolio:PorfolioService, private miFormBuilder:FormBuilder) {
+  constructor(private datosPorfolio:PorfolioService, private miFormBuilder:FormBuilder,
+              private autenticacion:AutenticacionService) {
+
     this.form=this.miFormBuilder.group({
-      fullName:['',[Validators.required, Validators.minLength(5)]],
-      position:['',[Validators.required]],
-      ubication:['',[Validators.required]],
-      about:['',[Validators.required]],
-      url:['https://',[Validators.required, Validators.pattern('https?://.+')]],
-      image_background:['https://',[Validators.required, Validators.pattern('https?://.+')]],
-      email:['', [Validators.required, Validators.email ]]
+    fullName:['',[Validators.required, Validators.minLength(5)]],
+    position:['',[Validators.required]],
+    ubication:['',[Validators.required]],
+    about:['',[Validators.required]],
+    url:['https://',[Validators.required, Validators.pattern('https?://.+')]],
+    image_background:['https://',[Validators.required, Validators.pattern('https?://.+')]],
+    email:['', [Validators.required, Validators.email ]]
     })
    }
 
-   get fullName()
-  {
-    return this.form.get("fullName");
-  }
-
-  ngOnInit(): void {
+   private cargarDatos(){
     this.datosPorfolio.obtenerDatosPersona(1).subscribe( data => {
       console.log("Datos personales" + JSON.stringify(data));
       //this.miPorfolio = data[0];
       this.persona = data;
     })
+   }
+
+  ngOnInit(): void {
+    this.usuarioAutenticado= this.autenticacion.usuarioAutenticado;
+    this.cargarDatos();
   }
 
+  get fullName()
+  {
+    return this.form.get("fullName");
+  }
+
+  private limpiarForm() {
+    this.form.setValue({
+      fullname: '',
+      position: '',
+      ubication: '',
+      about: '',
+      url: '',
+      image_background: '',
+      email: '',
+    })
+  }
+
+  nuevoDatosAcercaDe(){
+    this.limpiarForm();
+  }
+
+  /*
   guardarDatosAcercaDe(){
     if (this.form.valid)
     {
@@ -61,6 +87,37 @@ export class AcercaDeComponent implements OnInit {
     else{
       //alert("Hay errores");
       this.form.markAllAsTouched();
+    }
+  }
+  */
+  onSubmit() {
+    let perso: Persona = this.form.value;
+    if (this.form.get('id')?.value == '') {
+      this.datosPorfolio.crearDatosPersona(perso).subscribe(
+        {next: (d) => {
+          this.persona=perso;
+          document.getElementById("cerrarModalEncabezado")?.click();
+        },
+          error:(e)=> {alert("Ups, no se puedo actualizar el registro.")}
+        }
+      );
+    } else {
+      this.datosPorfolio.editarDatosPersona(perso).subscribe(
+        () => {
+          this.cargarDatos();
+        }
+      )
+    }
+  }
+
+
+  //falta el de editar
+
+  borrarDatosAcercaDe(){
+    if (confirm("¿Está seguro que desea borrar la educación seleccionada?")) {
+      this.datosPorfolio.borrarDatosEducacion(this.persona.id).subscribe( ()=> {
+        this.cargarDatos();
+      })
     }
   }
 

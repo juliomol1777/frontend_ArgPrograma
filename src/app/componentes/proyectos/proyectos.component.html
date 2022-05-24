@@ -1,12 +1,14 @@
 <article class="card mat-card">
   <div class="card-titles">
     <h2>Proyectos</h2>
-    <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-plus"></i> <!--onclick="showNewAchModal()"--></a>
+    <div *ngIf="usuarioAutenticado" class="btn-edit">
+      <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#proyectosForm"
+      (click)="onNuevoProyecto()"><i class="fa fa-plus"></i></button>
     </div>
   </div>
   <div class="achivements">
     <ol class="items-list">
-      <li *ngFor="let proyecto of proyectosList">
+      <li *ngFor="let proyecto of proyectosList; let i = index">
         <div class="data-container">
           <a href="#">
             <div class="list-info">
@@ -19,13 +21,81 @@
             </div>
           </a>
         </div>
-        <!--
-        <div *ngIf="isUserLogged" class="data-control">
-          <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-pen"></i></a></div>
-          <div class="btn-edit"><a href="#" class="btn-right"><i class="fa fa-trash"></i></a></div>
+        <div *ngIf="usuarioAutenticado" class="data-control">
+          <div class="btn-edit">
+            <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#proyectosForm"
+            (click)="onEditarProyecto(i)"><i class="fa fa-pen"></i></button>
+          </div>
+          <div class="btn-edit">
+            <button class="btn btn-right" (click)="onBorrarProyecto(i)"><i class="fa fa-trash"></i>
+            </button>
+          </div>
         </div>
-        -->
       </li>
       </ol>
   </div>
+
+  <!-- Modal -->
+<div
+class="modal fade"
+id="proyectosForm"
+tabindex="-1"
+aria-labelledby="proyectosFormLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="proyectosFormLabel">
+        Editar Proyectos
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div>
+          <input type="hidden" name="id" formControlName="id">
+          <div class="mb-3">
+            <label for="school" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="name"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="title" class="form-label">Detalles</label>
+            <input
+              type="text"
+              class="form-control"
+              id="info"
+              formControlName="info"
+            />
+          </div>
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            id="cerrarModalEncabezado"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Salir
+          </button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
 </article>

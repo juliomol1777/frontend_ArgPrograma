@@ -18,12 +18,13 @@ export class ExperienciaComponent implements OnInit {
   constructor(private datosPorfolio:PorfolioService, private miFormBuilder:FormBuilder, private autenticacion:AutenticacionService) {
     this.form=this.miFormBuilder.group({
       id: [''],
-      school:['',[Validators.required]],
-      title:['',[Validators.required]],
-      image:['',[Validators.required]],
-      career:['',[Validators.required]],
+      position:['',[Validators.required]],
+      company:['',[Validators.required]],
       start:['',[Validators.required]],
-      end:['',[Validators.required]]
+      end:['',[Validators.required]],
+      time:['',[Validators.required]],
+      mode:['',[Validators.required]],
+      place:['',[Validators.required]]
       })
    }
 

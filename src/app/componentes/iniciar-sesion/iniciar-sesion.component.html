@@ -1,3 +1,4 @@
+<div class="container mt-3">
 <h1>Iniciar Sesion</h1>
 <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
   <div class="mb-3">
@@ -28,5 +29,15 @@
     </p>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Enviar</button>
+  <div>
+  <div *ngIf="loginError" class="text-danger">
+  Usuario o pasword incorrectos</div>
+  <span>
+  <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Iniciar Sesion</button>
+</span>
+  <span>
+  <button routerLink="/porfolio" class="btn btn-primary">Cancelar</button>
+</span>
+</div>
 </form>
+</div>

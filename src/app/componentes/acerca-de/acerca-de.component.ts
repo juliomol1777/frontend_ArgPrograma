@@ -20,47 +20,52 @@ export class AcercaDeComponent implements OnInit {
               private autenticacion:AutenticacionService) {
 
     this.form=this.miFormBuilder.group({
-    fullName:['',[Validators.required, Validators.minLength(5)]],
+    id: [''],
+    fullname:['',[Validators.required, Validators.minLength(5)]],
     position:['',[Validators.required]],
     ubication:['',[Validators.required]],
     about:['',[Validators.required]],
-    url:['https://',[Validators.required, Validators.pattern('https?://.+')]],
+    image:['https://',[Validators.required, Validators.pattern('https?://.+')]],
     image_background:['https://',[Validators.required, Validators.pattern('https?://.+')]],
     email:['', [Validators.required, Validators.email ]]
     })
    }
 
    private cargarDatos(){
-    this.datosPorfolio.obtenerDatosPersona(1).subscribe( data => {
+    this.datosPorfolio.obtenerDatosPersona().subscribe( data => {
       console.log("Datos personales" + JSON.stringify(data));
-      //this.miPorfolio = data[0];
-      this.persona = data;
+//problema cuando no hay datos busca el data 0 y no existe
+
+      this.persona = data[0];
     })
    }
+
 
   ngOnInit(): void {
     this.usuarioAutenticado= this.autenticacion.usuarioAutenticado;
     this.cargarDatos();
   }
 
-  get fullName()
+
+  get fullname()
   {
-    return this.form.get("fullName");
+    return this.form.get("fullname");
   }
 
   private limpiarForm() {
     this.form.setValue({
+      id:'',
       fullname: '',
       position: '',
       ubication: '',
       about: '',
-      url: '',
+      image: '',
       image_background: '',
       email: '',
     })
   }
 
-  nuevoDatosAcercaDe(){
+  onNuevoDatosAcercaDe(){
     this.limpiarForm();
   }
 
@@ -105,17 +110,19 @@ export class AcercaDeComponent implements OnInit {
       this.datosPorfolio.editarDatosPersona(perso).subscribe(
         () => {
           this.cargarDatos();
+          document.getElementById("cerrarModalEncabezado")?.click();
         }
       )
     }
   }
 
+  onEditarDatosAcercaDe() {
+    this.mostrarDatosAcercaDe();
+  }
 
-  //falta el de editar
-
-  borrarDatosAcercaDe(){
+  onBorrarDatosAcercaDe(){
     if (confirm("¿Está seguro que desea borrar la educación seleccionada?")) {
-      this.datosPorfolio.borrarDatosEducacion(this.persona.id).subscribe( ()=> {
+      this.datosPorfolio.borrarDatosPersona(this.persona.id).subscribe( ()=> {
         this.cargarDatos();
       })
     }
@@ -123,11 +130,12 @@ export class AcercaDeComponent implements OnInit {
 
   mostrarDatosAcercaDe()
   {
-    this.form.get("fullName")?.setValue(this.persona.fullname);
+    this.form.get("id")?.setValue(this.persona.id);
+    this.form.get("fullname")?.setValue(this.persona.fullname);
     this.form.get("position")?.setValue(this.persona.position);
     this.form.get("ubication")?.setValue(this.persona.ubication);
     this.form.get("about")?.setValue(this.persona.about);
-    this.form.get("url")?.setValue(this.persona.image);
+    this.form.get("image")?.setValue(this.persona.image);
     this.form.get("image_background")?.setValue(this.persona.image_background);
     this.form.get("email")?.setValue(this.persona.email);
   }

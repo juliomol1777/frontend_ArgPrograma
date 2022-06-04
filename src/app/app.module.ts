@@ -13,7 +13,7 @@ import { IniciarSesionComponent } from './componentes/iniciar-sesion/iniciar-ses
 import { PorfolioComponent } from './componentes/porfolio/porfolio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PorfolioService } from './servicios/porfolio.service';
-import { InterceptorService } from './servicios/interceptor.service';
+//import { InterceptorService } from './servicios/interceptor.service';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 
 @NgModule({

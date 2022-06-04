@@ -12,7 +12,6 @@ import { Tecnologias } from '../entidades/tecnologias';
 })
 export class PorfolioService {
 
-  //url: string= "http://localhost:8080/persona";
   url: string= "http://localhost:8080/";
   persona: string= "persona";
   educacion: string= "educacion";
@@ -24,24 +23,24 @@ export class PorfolioService {
   constructor(private http: HttpClient) { }
 
 
-  obtenerDatosPersona(id:number): Observable<any>{
-    //console.log("hola")
-    return this.http.get(this.url+ this.persona +"/"+id);
-    //return this.http.get('./assets/data/data.json');
+  obtenerDatosPersona(): Observable<any>{
+    return this.http.get<any>(this.url+ this.persona);
   }
 
-  editarDatosPersona(perso:Persona):Observable<any>{
-    return this.http.put(this.url,perso);
+  editarDatosPersona(perso:Persona):Observable<Persona>{
+    return this.http.put<any>(this.url + this.persona,perso);
   }
 
   crearDatosPersona(perso:Persona):Observable<Persona>{
     return this.http.post<any>(this.url + this.persona,perso);
   }
 
+  borrarDatosPersona(id: number):Observable<any>{
+    return this.http.delete<any>(this.url + this.persona + "/" + id);
+  }
+
   obtenerDatosEducacion(): Observable<Educacion[]>{
-    //console.log("hola")
     return this.http.get<any>(this.url+ this.educacion);
-    //return this.http.get('./assets/data/data.json');
   }
 
   editarDatosEducacion(educa:Educacion):Observable<Educacion>{
@@ -57,9 +56,7 @@ export class PorfolioService {
   }
 
   obtenerDatosExperiencia(): Observable<Experiencia[]>{
-    //console.log("hola")
     return this.http.get<any>(this.url+ this.experiencia);
-    //return this.http.get('./assets/data/data.json');
   }
 
   editarDatosExperiencia(expe:Experiencia):Observable<Experiencia>{
@@ -75,9 +72,7 @@ export class PorfolioService {
   }
 
   obtenerDatosProyectos(): Observable<Proyectos[]>{
-    //console.log("hola")
     return this.http.get<any>(this.url+ this.proyectos);
-    //return this.http.get('./assets/data/data.json');
   }
 
   editarDatosProyectos(proye:Proyectos):Observable<Proyectos>{
@@ -93,9 +88,7 @@ export class PorfolioService {
   }
 
   obtenerDatosTecnologias(): Observable<Tecnologias[]>{
-    //console.log("hola")
     return this.http.get<any>(this.url+ this.tecnologias);
-    //return this.http.get('./assets/data/data.json');
   }
 
   editarDatosTecnologias(tecno:Tecnologias):Observable<Tecnologias>{

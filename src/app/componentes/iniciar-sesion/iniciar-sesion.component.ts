@@ -55,10 +55,12 @@ export class IniciarSesionComponent implements OnInit {
 
     this.autentificacionService.iniciarSesion(this.form.value).subscribe(
       (response: Boolean) => {
-        if (response)
+        if (response){
           this.ruta.navigate(['/porfolio']);
-        else
+        }
+        else{
           this.loginError = true;
+        }
       }
     );
   }

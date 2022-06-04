@@ -16,12 +16,12 @@
       </div>
 
       <div class="card-titles">
-        <div *ngIf="usuarioAutenticado" class="btn-edit">
+        <div *ngIf="usuarioAutenticado " class="btn-edit">
           <button
             class="btn btn-right"
             data-bs-toggle="modal"
             data-bs-target="#modalEncabezado"
-            (click)="nuevoDatosAcercaDe()"
+            (click)="onNuevoDatosAcercaDe()"
           >
             <i class="fa fa-plus"></i>
           </button>
@@ -44,26 +44,27 @@
             class="btn btn-right"
             data-bs-toggle="modal"
             data-bs-target="#modalEncabezado"
-            (click)="mostrarDatosAcercaDe()"
+            (click)="onEditarDatosAcercaDe()"
           >
             <i class="fa fa-pen"></i>
           </button>
-          <button class="btn btn-right" (click)="borrarDatosAcercaDe()">
+          <button class="btn btn-right" (click)="onBorrarDatosAcercaDe()">
             <i class="fa fa-trash"></i>
           </button>
       </div>
     </div>
     </div>
-  </div>
-  <div class="card mat-card">
+    <div class="card mat-card">
       <div class="card-titles">
-        <h2>Acerca de</h2>
+        <h2>Acerca de mi</h2>
       </div>
       <div id="about">
         {{ persona.about }}
       </div>
 
   </div>
+  </div>
+
 
 
 <!-- Modal -->
@@ -90,20 +91,21 @@
       <div class="modal-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <div>
+            <input type="hidden" name="id" formControlName="id" />
             <div class="mb-3">
-              <label for="fullName" class="form-label">Apellido y Nombre</label>
+              <label for="fullname" class="form-label">Apellido y Nombre</label>
               <input
                 type="text"
                 class="form-control"
-                id="fullName"
-                formControlName="fullName"
+                id="fullname"
+                formControlName="fullname"
               />
-              <div *ngIf="fullName?.invalid && fullName?.touched">
-                <div *ngIf="fullName?.errors?.['required']" class="text-danger">
+              <div *ngIf="fullname?.invalid && fullname?.touched">
+                <div *ngIf="fullname?.errors?.['required']" class="text-danger">
                   El apellido y nombre es requerido.
                 </div>
                 <div
-                  *ngIf="fullName?.errors?.['minlength']"
+                  *ngIf="fullname?.errors?.['minlength']"
                   class="text-danger"
                 >
                   El apellido y nombre debe tener como mínimo 5 caracteres.
@@ -132,16 +134,16 @@
               />
             </div>
             <div class="mb-3">
-              <label for="url" class="form-label">Url de la imagen</label>
+              <label for="image" class="form-label">Url de la imagen</label>
               <input
                 type="text"
                 class="form-control"
-                id="url"
-                formControlName="url"
+                id="image"
+                formControlName="image"
               />
             </div>
             <div class="mb-3">
-              <label for="about" class="form-label">Acerca de</label>
+              <label for="about" class="form-label">Acerca de mi</label>
               <input
                 type="text"
                 class="form-control"

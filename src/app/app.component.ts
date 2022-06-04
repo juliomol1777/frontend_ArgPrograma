@@ -7,8 +7,8 @@ import { AutenticacionService } from './servicios/autenticacion.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mi Porfolio';
-  //probando el ngif que no funca
+
+  title = 'mi Portfolio';
   usuarioAutenticado: boolean = false;
 
   constructor(private autenticadoService: AutenticacionService) {}

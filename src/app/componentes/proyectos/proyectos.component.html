@@ -1,4 +1,5 @@
 <article class="card mat-card">
+  <div id="education">
   <div class="card-titles">
     <h2>Proyectos</h2>
     <div *ngIf="usuarioAutenticado" class="btn-edit">
@@ -6,8 +7,8 @@
       (click)="onNuevoProyecto()"><i class="fa fa-plus"></i></button>
     </div>
   </div>
-  <div class="achivements">
-    <ol class="items-list">
+  <div>
+    <ul class="items-list">
       <li *ngFor="let proyecto of proyectosList; let i = index">
         <div class="data-container">
           <a href="#">
@@ -32,9 +33,9 @@
           </div>
         </div>
       </li>
-      </ol>
+      </ul>
   </div>
-
+</div>
   <!-- Modal -->
 <div
 class="modal fade"

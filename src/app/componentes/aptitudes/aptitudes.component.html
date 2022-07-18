@@ -1,19 +1,54 @@
 <article class="card mat-card">
-  <div id="education">
     <div class="card-titles">
       <h2>Skills & Tecnologías</h2>
       <div *ngIf="usuarioAutenticado" class="btn-edit">
-        <button
-          class="btn btn-right"
-          data-bs-toggle="modal"
-          data-bs-target="#aptitudesForm"
-          (click)="onNuevaAptitudes()"
-        >
+        <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#aptitudesForm"
+          (click)="onNuevaAptitudes()">
           <i class="fa fa-plus"></i>
         </button>
       </div>
     </div>
     <div>
+      <ul>
+        <li *ngFor="let aptitudes of aptitudesList; let i = index">
+          <div class="cards-categorias">
+            <div class="tarjeta">
+              <p>
+                <span>{{ aptitudes.name }}</span>
+              </p>
+              <figure>
+                <img src="../../../assets/images/c.svg" alt="celulares">
+                <!--
+                <img [src]="aptitudes.urlLogos" alt="celulares">
+                -->
+              </figure>
+              <div class="medios-pago">
+                <progress  value="{{aptitudes.progress}}" max="100">
+
+                </progress>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="usuarioAutenticado" class="data-control">
+            <div class="btn-edit">
+              <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#aptitudesForm"
+                (click)="onEditarAptitudes(i)">
+                <i class="fa fa-pen"></i>
+              </button>
+            </div>
+            <div class="btn-edit">
+              <button class="btn btn-right" (click)="onBorrarAptitudes(i)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+</article>
+<!--
       <ul class="items-list">
         <li *ngFor="let aptitudes of aptitudesList; let i = index">
 
@@ -27,7 +62,7 @@
                 <progress value="{{aptitudes.progress}}" max="100">
 
                 </progress>
-                <!--
+
                 <div class="progress">
                   <div
                     class="progress-bar progress-bar-striped bg-success"
@@ -38,93 +73,51 @@
                     aria-valuemax="100"
                   ></div>
                 </div>
-                -->
+
               </div>
             </a>
-          </div>
-
-          <div *ngIf="usuarioAutenticado" class="data-control">
-            <div class="btn-edit">
-              <button
-                class="btn btn-right"
-                data-bs-toggle="modal"
-                data-bs-target="#aptitudesForm"
-                (click)="onEditarAptitudes(i)"
-              >
-                <i class="fa fa-pen"></i>
-              </button>
-            </div>
-            <div class="btn-edit">
-              <button class="btn btn-right" (click)="onBorrarAptitudes(i)">
-                <i class="fa fa-trash"></i>
-              </button>
+            <div class="logo-image-container">
+              <img id="edu-img" class="logo-image" [src]="aptitudes.urlLogos">
             </div>
           </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div
-    class="modal fade"
-    id="aptitudesForm"
-    tabindex="-1"
-    aria-labelledby="aptitudesFormLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="aptitudesFormLabel">
-            Editar Experiencia
-          </h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div>
-              <input type="hidden" name="id" formControlName="id" />
-              <div class="mb-3">
-                <label for="school" class="form-label">Nombre</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  formControlName="name"
-                />
-              </div>
-
-              <div class="mb-3">
-                <label for="title" class="form-label">Progreso</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="progress"
-                  formControlName="progress"
-                />
-              </div>
-
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  id="cerrarModalEncabezado"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Salir
-                </button>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-              </div>
+           -->
+<!-- Modal -->
+<div class="modal fade" id="aptitudesForm" tabindex="-1" aria-labelledby="aptitudesFormLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="aptitudesFormLabel">
+          Editar Experiencia
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div>
+            <input type="hidden" name="id" formControlName="id" />
+            <div class="mb-3">
+              <label for="school" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="name" formControlName="name" />
             </div>
-          </form>
-        </div>
+
+            <div class="mb-3">
+              <label for="title" class="form-label">Progreso</label>
+              <input type="text" class="form-control" id="progress" formControlName="progress" />
+            </div>
+            <div class="mb-3">
+              <label for="title" class="form-label">Logos de lenguajes de programacion</label>
+              <input type="text" class="form-control" id="urlLogos" formControlName="urlLogos" />
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" id="cerrarModalEncabezado" class="btn btn-secondary" data-bs-dismiss="modal">
+                Salir
+              </button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-</article>
+</div>

@@ -1,12 +1,14 @@
 <article>
   <div class="card mat-card" id="first-card">
     <div id="profile-background">
-      <img id="info-back-img" [src]="persona.image_background" />
-    </div>
+      <img id="info-back-img" [src]="persona?.image_background" />
 
-    <div id="info" style="padding: 16px">
+  </div>
+  </div>
+  <div class="col-card">
+    <div class="card mat-card col-card-item-first">
       <div id="info-img">
-        <img id="info-user-img" class="profile-image" [src]="persona.image" />
+        <img id="info-user-img" class="profile-image" [src]="persona?.image" />
         <div *ngIf="usuarioAutenticado" class="btn-edit">
           <a href="#" class="btn-right"
             ><i class="fa fa-pen"></i>
@@ -14,9 +16,8 @@
           >
         </div>
       </div>
-
       <div class="card-titles">
-        <div *ngIf="usuarioAutenticado " class="btn-edit">
+        <div *ngIf="usuarioAutenticado && !id" class="btn-edit">
           <button
             class="btn btn-right"
             data-bs-toggle="modal"
@@ -29,13 +30,21 @@
       </div>
       <div id="info-data">
         <div>
-          <h1 id="info-name">{{ persona.fullname }}</h1>
+          <h1 id="info-name">{{ persona?.fullname }}</h1>
           <div>
-            <span id="info-position">{{ persona.position }}</span>
+            <span id="info-position">{{ persona?.position }}</span>
           </div>
           <div id="info-contact">
-            <span id="info-ubication">{{ persona.ubication }}</span>
-            <span><a href="#">Información de contacto</a></span>
+            <span id="info-ubication">{{ persona?.ubication }}</span>
+          </div>
+          <div class="button">
+            <!-- Button trigger modal -->
+            <button type="button" class="button-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Info Contacto
+            </button>
+            <!--
+            <button class="button-primary"><a href=#>Info Contacto</a></button>
+            -->
           </div>
         </div>
 
@@ -53,19 +62,18 @@
           </button>
       </div>
     </div>
-    </div>
-    <div class="card mat-card">
+  </div>
+
+    <div class="card mat-card col-card-item-second">
       <div class="card-titles">
         <h2>Acerca de mi</h2>
       </div>
       <div id="about">
-        {{ persona.about }}
+        {{ persona?.about }}
       </div>
-
   </div>
   </div>
-
-
+</article>
 
 <!-- Modal -->
 <div
@@ -187,4 +195,51 @@
     </div>
   </div>
 </div>
-</article>
+<!--Modal info contacto-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos de Contacto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <a class="nav-link waves-effect waves-light">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <p><a>
+            Conoce mi repositorio
+          </a>
+          </p>
+        </div>
+
+      <div>
+        <a class="nav-link waves-effect waves-light">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <p><a>
+          Visita mi LinkedIn
+        </a>
+        </p>
+      </div>
+      <div>
+        <a>
+          <i class="fa-solid fa-at"></i>
+          <i class="grey-text fab fa-facebook-square fa-2x"></i>
+        </a>
+        <a><p>
+          Contactame por email
+        </p>
+        </a>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+

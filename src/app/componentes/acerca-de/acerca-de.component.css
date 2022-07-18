@@ -1,0 +1,48 @@
+.col-card{
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.col-card-item-first{
+  width: 35%;
+}
+
+.col-card-item-second{
+  width: 60%;
+}
+
+.button{
+  margin: 20px auto;
+
+}
+.button-primary{
+  width: 150px;
+  height: 60px;
+  border: none;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 10px;
+  border: 3px solid #0250c9;
+  background-color: white;
+  cursor: pointer;
+}
+
+@keyframes cambiarLetra{
+  from{color: #0250c9;}
+  to{color: white;}
+}
+
+
+.button-primary:hover{
+  background-color: #0250c9;
+  animation: cambiarLetra 5s linear infinite;
+}
+
+.button-primary a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #0250c9;
+  text-align: center;
+  padding: 3px 3px;
+}

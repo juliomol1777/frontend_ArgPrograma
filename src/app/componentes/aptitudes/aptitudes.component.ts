@@ -20,7 +20,8 @@ export class AptitudesComponent implements OnInit {
     this.form=this.miFormBuilder.group({
       id: [''],
       name:['',[Validators.required]],
-      progress:['',[Validators.required]]
+      progress:['',[Validators.required]],
+      urlLogos:['https://',[Validators.required, Validators.pattern('https?://.+')]]
       })
      }
 
@@ -39,7 +40,8 @@ export class AptitudesComponent implements OnInit {
     this.form.setValue({
       id:'',
       name: '',
-      progress: ''
+      progress: '',
+      urlLogos: ''
     })
   }
 
@@ -83,7 +85,8 @@ export class AptitudesComponent implements OnInit {
     this.form.setValue({
       id: tecnologias.id,
       name: tecnologias.name,
-      progress: tecnologias.progress
+      progress: tecnologias.progress,
+      urlLogos: tecnologias.urlLogos
     })
   }
 }

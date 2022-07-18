@@ -1,16 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body{
+  margin: 10px;
+}
+
+.card{
+  border: 2px solid #0a66c2;
+}
+
 .mat-card {
   border-radius: 32px;
   margin: 10px 10px;
   padding: 20px;
 }
+
 .mat-card#first-card {
   padding: 0;
 }
+
 .profile-image {
   border-radius: 50%;
-  width: 152px;
-  height: 152px;
+  width: 200px;
+  height: 200px;
   margin-top: -110px;
   z-index: 1;
 }
@@ -151,13 +166,14 @@ div.achivements ul.project-list li {
 }
 #info-img {
   display: flex;
+  justify-content: center;
 }
 .btn-right {
   display: flex;
   align-self: flex-end;
 }
 .fa-button,.fa {
-  color: black;
+  color: #0a66c2;
   display: block;
   height: 2.4rem;
   width: 2.4rem;
@@ -167,7 +183,7 @@ div.achivements ul.project-list li {
   background: white;
 }
 .fa-button:hover,.fa:hover {
-  background: gray;
+  background: #0a66c2;
 }
 div#profile-background {
   display: flex;

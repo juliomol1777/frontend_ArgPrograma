@@ -34,7 +34,7 @@ export class AcercaDeComponent implements OnInit {
    private cargarDatos(){
     this.datosPorfolio.obtenerDatosPersona().subscribe( data => {
       console.log("Datos personales" + JSON.stringify(data));
-//problema cuando no hay datos busca el data 0 y no existe
+//problema cuando no hay datos busca el data 0 y no existe, solucion,,, en el html uso persona?.
 
       this.persona = data[0];
     })
@@ -46,6 +46,10 @@ export class AcercaDeComponent implements OnInit {
     this.cargarDatos();
   }
 
+  get id()
+  {
+    return this.persona;
+  }
 
   get fullname()
   {

@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PorfolioService } from './servicios/porfolio.service';
 //import { InterceptorService } from './servicios/interceptor.service';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ExperienciaComponent } from './componentes/experiencia/experiencia.comp
     ProyectosComponent,
     IniciarSesionComponent,
     PorfolioComponent,
-    ExperienciaComponent
+    ExperienciaComponent,
+    FooterComponent
   ],
   imports: [
     FormsModule,

@@ -1,0 +1,51 @@
+ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.cards-categorias{
+  margin-top: 33px;
+  padding: 0 16px;
+  border-width: 1px;
+}
+
+figure img{
+  display: block;
+  width: 100%;
+  height: 100px;
+  border-radius: 5%;
+}
+
+.tarjeta{
+  width: 100%;
+  height: 250px;
+  margin: 10px;
+  padding: 10px;
+  cursor: default;
+  transition: all 200ms ease;
+  border-radius: 5%;
+}
+
+@keyframes cambiarFondo{
+  from{border: 1px solid #fdfcfc;}
+  to{border: 2px solid #0250c9;}
+}
+
+.tarjeta:hover{
+  animation: cambiarFondo 5s linear ;
+  box-shadow: 0.3rem 0.3rem 0.6rem #0250c9;
+  transform: translateY(-1%);
+}
+
+.tarjeta p{
+  height: 53px;
+  max-height: 53px;
+}
+.medios-pago{
+  font-size: 20px;
+  margin: 10px;
+  text-align: left;
+  padding: 10px;
+}

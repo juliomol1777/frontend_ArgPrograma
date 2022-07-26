@@ -1,7 +1,7 @@
 .col-card{
-  display: inline-flex;
+  display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
 }
 
 .col-card-item-first{
@@ -9,21 +9,21 @@
 }
 
 .col-card-item-second{
-  width: 60%;
+  width: 65%;
 }
 
 .button{
-  margin: 20px auto;
+  margin: 2rem auto;
 
 }
 .button-primary{
-  width: 150px;
-  height: 60px;
+  width: 10rem;
+  height: 3rem;
   border: none;
-  font-size: 18px;
+  font-size: 1.3rem;
   text-align: center;
-  border-radius: 10px;
-  border: 3px solid #0250c9;
+  border-radius: 1rem;
+  border: 0.3rem solid #0250c9;
   background-color: white;
   cursor: pointer;
 }
@@ -44,5 +44,10 @@
   font-size: 18px;
   color: #0250c9;
   text-align: center;
-  padding: 3px 3px;
+  padding: 0.3rem 0.3rem;
+}
+
+.modal-body p{
+  font-size: 1.2rem;
+  margin-left: 1rem;
 }

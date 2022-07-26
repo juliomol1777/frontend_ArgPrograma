@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Tecnologias } from 'src/app/entidades/tecnologias';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-aptitudes',
@@ -12,11 +13,12 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 export class AptitudesComponent implements OnInit {
 
   aptitudesList!:Tecnologias[];
-  usuarioAutenticado:Boolean = false;
+  isAdmin = false;
+  roles!: string[];
   form:FormGroup;
 
   constructor(private datosPorfolio:PorfolioService, private miFormBuilder:FormBuilder,
-              private autenticacion:AutenticacionService) {
+              private tokenService:TokenService) {
     this.form=this.miFormBuilder.group({
       id: [''],
       name:['',[Validators.required]],
@@ -32,7 +34,12 @@ export class AptitudesComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    this.usuarioAutenticado= this.autenticacion.usuarioAutenticado;
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
     this.cargarDatos();
   }
 

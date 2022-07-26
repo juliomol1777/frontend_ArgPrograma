@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-porfolio',
@@ -8,7 +9,7 @@ import { Component, OnInit, Output } from '@angular/core';
 export class PorfolioComponent implements OnInit {
 
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }

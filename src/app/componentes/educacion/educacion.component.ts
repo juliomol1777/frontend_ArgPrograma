@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Educacion } from 'src/app/entidades/educacion';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-educacion',
@@ -12,11 +13,12 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 export class EducacionComponent implements OnInit {
 
   educacionList!:Educacion[];
-  usuarioAutenticado:Boolean = false;
+  isAdmin = false;
+  roles!: string[];
   form:FormGroup;
 
   constructor(private datosPorfolio:PorfolioService, private miFormBuilder:FormBuilder,
-              private autenticacion:AutenticacionService) {
+              private tokenService: TokenService) {
       this.form=this.miFormBuilder.group({
         id: [''],
         school:['',[Validators.required]],
@@ -35,7 +37,12 @@ export class EducacionComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    this.usuarioAutenticado= this.autenticacion.usuarioAutenticado;
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
     this.cargarDatos();
   }
 

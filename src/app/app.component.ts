@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AutenticacionService } from './servicios/autenticacion.service';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +8,9 @@ import { AutenticacionService } from './servicios/autenticacion.service';
 export class AppComponent {
 
   title = 'mi Portfolio';
-  usuarioAutenticado: boolean = false;
 
-  constructor(private autenticadoService: AutenticacionService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.usuarioAutenticado = this.autenticadoService.usuarioAutenticado;
   }
-  //
 }

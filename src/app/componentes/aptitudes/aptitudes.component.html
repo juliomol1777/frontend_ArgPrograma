@@ -1,7 +1,7 @@
 <article class="card mat-card">
     <div class="card-titles">
       <h2>Skills & Tecnologías</h2>
-      <div *ngIf="usuarioAutenticado" class="btn-edit">
+      <div *ngIf="isAdmin" class="btn-edit">
         <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#aptitudesForm"
           (click)="onNuevaAptitudes()">
           <i class="fa fa-plus"></i>
@@ -30,7 +30,7 @@
             </div>
           </div>
 
-          <div *ngIf="usuarioAutenticado" class="data-control">
+          <div *ngIf="isAdmin" class="data-control">
             <div class="btn-edit">
               <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#aptitudesForm"
                 (click)="onEditarAptitudes(i)">

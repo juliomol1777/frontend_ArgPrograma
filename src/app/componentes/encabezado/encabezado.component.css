@@ -1,4 +1,18 @@
-.nav-item a i:hover {
+.collapse button{
+  margin: 1rem;
+}
+
+.nav-item a:hover {
   color: #0250c9;
 
 }
+
+.navbar-brand{
+  color: #0250c9;
+  margin: 1rem;
+}
+
+.navbar-nav{
+  font-size: 200%;
+}
+

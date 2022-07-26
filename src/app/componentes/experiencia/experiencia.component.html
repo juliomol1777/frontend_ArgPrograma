@@ -1,8 +1,7 @@
 <article class="card mat-card">
-  <div id="experience">
     <div class="card-titles">
       <h2>Experiencia</h2>
-      <div *ngIf="usuarioAutenticado" class="btn-edit">
+      <div *ngIf="isAdmin" class="btn-edit">
         <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#experienciaForm"
         (click)="onNuevaExperiencia()"><i class="fa fa-plus"></i></button>
       </div>
@@ -25,7 +24,7 @@
               </div>
             </a>
           </div>
-          <div *ngIf="usuarioAutenticado" class="data-control">
+          <div *ngIf="isAdmin" class="data-control">
             <div class="btn-edit">
               <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#experienciaForm"
               (click)="onEditarExperiencia(i)"><i class="fa fa-pen"></i></button>
@@ -37,7 +36,6 @@
           </div>
         </li>
       </ul>
-    </div>
   </div>
   <!-- Modal -->
 <div
@@ -128,6 +126,15 @@ aria-hidden="true"
               class="form-control"
               id="place"
               formControlName="place"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">url de la imagen</label>
+            <input
+              type="text"
+              class="form-control"
+              id="image"
+              formControlName="image"
             />
           </div>
         </div>

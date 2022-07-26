@@ -1,21 +1,22 @@
 <article>
-  <div class="card mat-card" id="first-card">
     <div id="profile-background">
       <img id="info-back-img" [src]="persona?.image_background" />
 
-  </div>
   </div>
   <div class="col-card">
     <div class="card mat-card col-card-item-first">
       <div id="info-img">
         <img id="info-user-img" class="profile-image" [src]="persona?.image" />
+        <!--
         <div *ngIf="usuarioAutenticado" class="btn-edit">
           <a href="#" class="btn-right"
             ><i class="fa fa-pen"></i>
-            <!--onclick="showEditProfileModal()"--></a
+            onclick="showEditProfileModal()"</a
           >
         </div>
+        -->
       </div>
+      <!--
       <div class="card-titles">
         <div *ngIf="usuarioAutenticado && !id" class="btn-edit">
           <button
@@ -28,6 +29,7 @@
           </button>
         </div>
       </div>
+      -->
       <div id="info-data">
         <div>
           <h1 id="info-name">{{ persona?.fullname }}</h1>
@@ -48,7 +50,7 @@
           </div>
         </div>
 
-      <div *ngIf="usuarioAutenticado" class="data-control" id="info-actions">
+      <div *ngIf="isAdmin" class="data-control" id="info-actions">
           <button
             class="btn btn-right"
             data-bs-toggle="modal"
@@ -67,9 +69,19 @@
     <div class="card mat-card col-card-item-second">
       <div class="card-titles">
         <h2>Acerca de mi</h2>
+        <div *ngIf="isAdmin" class="btn-edit">
+          <button
+            class="btn btn-right"
+            data-bs-toggle="modal"
+            data-bs-target="#modalEncabezado"
+            (click)="onNuevoDatosAcercaDe()"
+          >
+            <i class="fa fa-plus"></i>
+          </button>
+        </div>
       </div>
       <div id="about">
-        {{ persona?.about }}
+        <p>{{ persona?.about }}</p>
       </div>
   </div>
   </div>
@@ -177,6 +189,24 @@
                 formControlName="image_background"
               />
             </div>
+            <div class="mb-3">
+              <label for="urlIn" class="form-label">url de LinkedIn</label>
+              <input
+                type="text"
+                class="form-control"
+                id="urlIn"
+                formControlName="urlIn"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="urlGithub" class="form-label">url de Github</label>
+              <input
+                type="text"
+                class="form-control"
+                id="urlGithub"
+                formControlName="urlGithub"
+              />
+            </div>
           </div>
 
           <div class="modal-footer">
@@ -204,6 +234,12 @@
         <h5 class="modal-title" id="exampleModalLabel">Datos de Contacto</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        <p><a href={{persona?.urlGithub}} data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px" src="../../../assets/images/298818_logo_github_icon.png"/></a> Conoce mi repositorio</p>
+        <p><a href={{persona?.urlIn}} data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px" src="../../../assets/images/294671_linkedin_icon.png"/></a> Visita mi LinkedIn</p>
+        <p><a href="#" data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px" src="../../../assets/images/4202011_email_gmail_mail_logo_social_icon.png"/></a> Enviame un mensaje</p>
+      </div>
+      <!--
       <div class="modal-body">
         <div>
           <a class="nav-link waves-effect waves-light">
@@ -235,8 +271,9 @@
         </a>
 
       </div>
+      -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>

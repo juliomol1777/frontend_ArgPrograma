@@ -4,18 +4,15 @@
   box-sizing: border-box;
 }
 
-body{
-  margin: 10px;
-}
-
-.card{
-  border: 2px solid #0a66c2;
+html{
+  font-size: 62.5%;
 }
 
 .mat-card {
-  border-radius: 32px;
-  margin: 10px 10px;
-  padding: 20px;
+  border: 0.1rem solid #0a66c2!important;
+  border-radius: 1.5rem!important;
+  margin: 1rem 1rem;
+  padding: 2rem;
 }
 
 .mat-card#first-card {
@@ -24,17 +21,20 @@ body{
 
 .profile-image {
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  margin-top: -110px;
+  border: 0.2rem solid #0a66c2;
+  width: 15rem;
+  height: 15rem;
+  margin-top: -11rem;
   z-index: 1;
 }
 div#info-actions {
   display: flex;
 }
 div#info-actions button {
-  margin-right: 8px;
+  margin-right: 0.8rem;
 }
+
+/*
 div#info-contact span {
   font-size: 1rem;
   font-weight: 400;
@@ -49,45 +49,57 @@ div#info-company {
   font-weight: 400;
   line-height: 1.25;
 }
+*/
+
 div#info-data {
   display: flex;
   justify-content: space-between;
 }
 div#info-data h1 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   display: inline;
   font-weight: 500;
   line-height: 1.25;
   word-wrap: break-word;
   word-break: break-word;
 }
-div#info-data ul#info-details {
-  width: 232px;
+div#info-data ul{
+  width: 23rem;
   list-style: none;
   flex-shrink: 0;
 }
-div#info-data ul#info-details li a {
+div#info-data ul li a {
   color: black;
   display: flex;
   text-decoration: none;
 }
-div#info-data ul#info-details li a h2 {
+div#info-data ul li a h2 {
   font-size: 1rem;
   font-weight: 500;
   align-self: center;
   vertical-align: baseline;
 }
-div#info-data ul#info-details li a img {
-  width: 32px;
-  height: 32px;
-  margin-right: 8px;
+
+div#info-data span{
+  font-size: 1.5rem;
+}
+
+div#about p{
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
+div#info-data ul li a img {
+  width: 3.2rem;
+  height: 3.2rem;
+  margin-right: 0.8rem;
 }
 ul.items-list {
   list-style: none inside;
 }
 ul.items-list li {
   display: flex;
-  margin: 10px 0;
+  margin: 1rem 0;
 }
 ul.items-list li div.data-container {
   flex-grow: 1;
@@ -98,27 +110,29 @@ ul.items-list li div.data-container a {
   text-decoration: none;
 }
 ul.items-list li div.data-container a div.logo-image-container {
-  margin: 10px 0;
+  margin: 1rem 0;
 }
 ul.items-list li div.data-container a div.logo-image-container img.logo-image {
-  height: 60px;
-  width: 60px;
+  height: 6rem;
+  width: 6rem;
 }
 ul.items-list li div.data-container a div.list-info {
-  margin: 0 10px;
+  margin: 0 1rem;
 }
 ul.items-list li div.data-container a div.list-info h3 {
   color: black;
-  margin: 10px;
+  margin: 1rem;
 }
 ul.items-list li div.data-container a div.list-info h4, ul.items-list li div.data-container a div.list-info time {
   color: gray;
-  margin: 0 5px;
+  margin: 0 0.5rem;
 }
 ul.items-list li div.data-container a div.list-info p {
   color: black;
-  margin: 0 5px;
+  margin: 0 0.5;
+  font-size: 1.5rem;
 }
+/*
 ol.items-list {
   list-style: none inside;
 }
@@ -129,6 +143,7 @@ ol.items-list li div.aptitude-info a {
 ol.items-list li div.aptitude-info a span {
   color: black;
 }
+
 div.achivements {
   display: flex;
   position: relative;
@@ -149,12 +164,18 @@ div.achivements div.project-title h3 {
 div.achivements ul.project-list li {
   display: inline;
 }
+*/
 .card-titles {
   display: flex;
+  background-color: #0a66c2;
+  border-radius: 0 2rem 0 0;
+  max-width: 50%;
 }
 .card-titles h2 {
   flex: 10;
   margin: auto;
+  padding-left: 1rem;
+  color: white;
 }
 .card-titles .btn-edit {
   flex: 1;
@@ -188,10 +209,11 @@ div.achivements ul.project-list li {
 div#profile-background {
   display: flex;
   z-index: 1;
+  border-radius: 1rem;
 }
 div#profile-background img {
   width: 100%;
-  border-radius: 32px 32px 0 0;
+  border-radius: 1rem;
 }
 .data-control{
   display: flex;

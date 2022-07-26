@@ -7,10 +7,10 @@ export class Experiencia{
   time: string;
   mode: string;
   place: string;
-
+  image: string;
 
  constructor(id:number, position:string, company:string, start:string, end:string,
-  time:string, mode:string, place:string)
+  time:string, mode:string, place:string, image: string)
  {
 
      this.id=id;
@@ -21,6 +21,7 @@ export class Experiencia{
      this.time=time;
      this.mode=mode;
      this.place=place;
+     this.image=image;
  }
 
 }

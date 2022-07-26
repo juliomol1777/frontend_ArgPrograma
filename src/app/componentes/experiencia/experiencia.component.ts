@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Experiencia } from 'src/app/entidades/experiencia';
 import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -12,10 +13,12 @@ import { PorfolioService } from 'src/app/servicios/porfolio.service';
 export class ExperienciaComponent implements OnInit {
 
   experienciaList!: Experiencia[];
-  usuarioAutenticado:Boolean = false;
+  isAdmin = false;
+  roles!: string[];
   form:FormGroup;
 
-  constructor(private datosPorfolio:PorfolioService, private miFormBuilder:FormBuilder, private autenticacion:AutenticacionService) {
+  constructor(private datosPorfolio:PorfolioService, private miFormBuilder:FormBuilder,
+    private tokenService:TokenService) {
     this.form=this.miFormBuilder.group({
       id: [''],
       position:['',[Validators.required]],
@@ -24,7 +27,8 @@ export class ExperienciaComponent implements OnInit {
       end:['',[Validators.required]],
       time:['',[Validators.required]],
       mode:['',[Validators.required]],
-      place:['',[Validators.required]]
+      place:['',[Validators.required]],
+      image:['https://',[Validators.required, Validators.pattern('https?://.+')]]
       })
    }
 
@@ -35,7 +39,12 @@ export class ExperienciaComponent implements OnInit {
    }
 
 ngOnInit(): void {
-  this.usuarioAutenticado= this.autenticacion.usuarioAutenticado;
+  this.roles = this.tokenService.getAuthorities();
+  this.roles.forEach(rol => {
+    if (rol === 'ROLE_ADMIN') {
+      this.isAdmin = true;
+    }
+  });
   this.cargarDatos();
 }
 
@@ -48,8 +57,8 @@ private limpiarForm() {
     end: '',
     time: '',
     mode: '',
-    place: ''
-
+    place: '',
+    image:''
   })
 }
 
@@ -98,7 +107,8 @@ private mostrarDatosExperiencia(experiencia: Experiencia) {
     end: experiencia.end,
     time: experiencia.time,
     mode: experiencia.mode,
-    place: experiencia.place
+    place: experiencia.place,
+    image: experiencia.image
   })
 }
 

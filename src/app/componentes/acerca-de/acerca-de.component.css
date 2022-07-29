@@ -1,7 +1,6 @@
 .col-card{
   display: flex;
   justify-content: center;
-  /*flex-wrap: wrap;*/
 }
 
 .col-card-item-first{
@@ -15,36 +14,6 @@
 .button{
   margin: 2rem auto;
 
-}
-.button-primary{
-  width: 10rem;
-  height: 3rem;
-  border: none;
-  font-size: 1.3rem;
-  text-align: center;
-  border-radius: 1rem;
-  border: 0.3rem solid #0250c9;
-  background-color: white;
-  cursor: pointer;
-}
-
-@keyframes cambiarLetra{
-  from{color: #0250c9;}
-  to{color: white;}
-}
-
-
-.button-primary:hover{
-  background-color: #0250c9;
-  animation: cambiarLetra 5s linear infinite;
-}
-
-.button-primary a {
-  text-decoration: none;
-  font-size: 18px;
-  color: #0250c9;
-  text-align: center;
-  padding: 0.3rem 0.3rem;
 }
 
 .modal-body p{

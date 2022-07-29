@@ -12,7 +12,7 @@ import { Tecnologias } from '../entidades/tecnologias';
 })
 export class PorfolioService {
 
-  url: string= "http://localhost:8080/";
+  url: string= "https://juliom-portfolio-argprog.herokuapp.com/";
   persona: string= "persona";
   educacion: string= "educacion";
   experiencia: string= "experiencia";

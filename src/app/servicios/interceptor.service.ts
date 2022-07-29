@@ -21,19 +21,3 @@ export class InterceptorService implements HttpInterceptor{
 }
 
 export const interceptorProvider = [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}];
-/*
-  constructor(private autenticacionService : AutenticacionService) {}
-
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    var currentUser = this.autenticacionService.usuarioAutenticado;
-    if(currentUser && currentUser.accessToken){
-      req = req.clone({
-        setHeaders:{
-          Authorization: 'Bearer ${currentUser.accessToken}'
-        }
-      })
-    }
-    return next.handle(req);
-  }
-  */
-

@@ -1,8 +1,10 @@
 .footer {
   height: 10rem;
+  width: 100%;
   text-align: center;
   justify-content: center;
   margin-top: 1rem;
+  vertical-align: baseline;
 }
 
 .footer__container{

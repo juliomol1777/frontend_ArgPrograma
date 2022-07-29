@@ -1,35 +1,13 @@
 <article>
-    <div id="profile-background">
-      <img id="info-back-img" [src]="persona?.image_background" />
+  <div id="profile-background">
+    <img id="info-back-img" [src]="persona?.image_background" />
 
   </div>
   <div class="col-card">
     <div class="card mat-card col-card-item-first">
       <div id="info-img">
         <img id="info-user-img" class="profile-image" [src]="persona?.image" />
-        <!--
-        <div *ngIf="usuarioAutenticado" class="btn-edit">
-          <a href="#" class="btn-right"
-            ><i class="fa fa-pen"></i>
-            onclick="showEditProfileModal()"</a
-          >
-        </div>
-        -->
       </div>
-      <!--
-      <div class="card-titles">
-        <div *ngIf="usuarioAutenticado && !id" class="btn-edit">
-          <button
-            class="btn btn-right"
-            data-bs-toggle="modal"
-            data-bs-target="#modalEncabezado"
-            (click)="onNuevoDatosAcercaDe()"
-          >
-            <i class="fa fa-plus"></i>
-          </button>
-        </div>
-      </div>
-      -->
       <div id="info-data">
         <div>
           <h1 id="info-name">{{ persona?.fullname }}</h1>
@@ -41,41 +19,31 @@
           </div>
           <div class="button">
             <!-- Button trigger modal -->
-            <button type="button" class="button-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
               Info Contacto
             </button>
-            <!--
-            <button class="button-primary"><a href=#>Info Contacto</a></button>
-            -->
           </div>
         </div>
 
-      <div *ngIf="isAdmin" class="data-control" id="info-actions">
-          <button
-            class="btn btn-right"
-            data-bs-toggle="modal"
-            data-bs-target="#modalEncabezado"
-            (click)="onEditarDatosAcercaDe()"
-          >
+        <div *ngIf="isAdmin" class="data-control" id="info-actions">
+          <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#modalEncabezado"
+            (click)="onEditarDatosAcercaDe()">
             <i class="fa fa-pen"></i>
           </button>
           <button class="btn btn-right" (click)="onBorrarDatosAcercaDe()">
             <i class="fa fa-trash"></i>
           </button>
+        </div>
       </div>
     </div>
-  </div>
 
     <div class="card mat-card col-card-item-second">
       <div class="card-titles">
         <h2>Acerca de mi</h2>
         <div *ngIf="isAdmin" class="btn-edit">
-          <button
-            class="btn btn-right"
-            data-bs-toggle="modal"
-            data-bs-target="#modalEncabezado"
-            (click)="onNuevoDatosAcercaDe()"
-          >
+          <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#modalEncabezado"
+            (click)="onNuevoDatosAcercaDe()">
             <i class="fa fa-plus"></i>
           </button>
         </div>
@@ -83,30 +51,19 @@
       <div id="about">
         <p>{{ persona?.about }}</p>
       </div>
-  </div>
+    </div>
   </div>
 </article>
 
 <!-- Modal -->
-<div
-  class="modal fade"
-  id="modalEncabezado"
-  tabindex="-1"
-  aria-labelledby="tituloModalEncabezado"
-  aria-hidden="true"
->
+<div class="modal fade" id="modalEncabezado" tabindex="-1" aria-labelledby="tituloModalEncabezado" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="tituloModalEncabezado">
-          Editar Encabezado
+          Editar Acerca de
         </h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -114,20 +71,12 @@
             <input type="hidden" name="id" formControlName="id" />
             <div class="mb-3">
               <label for="fullname" class="form-label">Apellido y Nombre</label>
-              <input
-                type="text"
-                class="form-control"
-                id="fullname"
-                formControlName="fullname"
-              />
+              <input type="text" class="form-control" id="fullname" formControlName="fullname" />
               <div *ngIf="fullname?.invalid && fullname?.touched">
                 <div *ngIf="fullname?.errors?.['required']" class="text-danger">
                   El apellido y nombre es requerido.
                 </div>
-                <div
-                  *ngIf="fullname?.errors?.['minlength']"
-                  class="text-danger"
-                >
+                <div *ngIf="fullname?.errors?.['minlength']" class="text-danger">
                   El apellido y nombre debe tener como mínimo 5 caracteres.
                 </div>
               </div>
@@ -135,87 +84,40 @@
 
             <div class="mb-3">
               <label for="position" class="form-label">Posición</label>
-              <input
-                type="text"
-                class="form-control"
-                id="position"
-                formControlName="position"
-              />
+              <input type="text" class="form-control" id="position" formControlName="position" />
             </div>
             <div class="mb-3">
-              <label for="ubication" class="form-label"
-                >Lugar de residencia</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="ubication"
-                formControlName="ubication"
-              />
+              <label for="ubication" class="form-label">Lugar de residencia</label>
+              <input type="text" class="form-control" id="ubication" formControlName="ubication" />
             </div>
             <div class="mb-3">
               <label for="image" class="form-label">Url de la imagen</label>
-              <input
-                type="text"
-                class="form-control"
-                id="image"
-                formControlName="image"
-              />
+              <input type="text" class="form-control" id="image" formControlName="image" />
             </div>
             <div class="mb-3">
               <label for="about" class="form-label">Acerca de mi</label>
-              <input
-                type="text"
-                class="form-control"
-                id="about"
-                formControlName="about"
-              />
+              <input type="text" class="form-control" id="about" formControlName="about" />
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">email</label>
-              <input
-                type="text"
-                class="form-control"
-                id="email"
-                formControlName="email"
-              />
+              <input type="text" class="form-control" id="email" formControlName="email" />
             </div>
             <div class="mb-3">
               <label for="image_background" class="form-label">banner</label>
-              <input
-                type="text"
-                class="form-control"
-                id="image_background"
-                formControlName="image_background"
-              />
+              <input type="text" class="form-control" id="image_background" formControlName="image_background" />
             </div>
             <div class="mb-3">
               <label for="urlIn" class="form-label">url de LinkedIn</label>
-              <input
-                type="text"
-                class="form-control"
-                id="urlIn"
-                formControlName="urlIn"
-              />
+              <input type="text" class="form-control" id="urlIn" formControlName="urlIn" />
             </div>
             <div class="mb-3">
               <label for="urlGithub" class="form-label">url de Github</label>
-              <input
-                type="text"
-                class="form-control"
-                id="urlGithub"
-                formControlName="urlGithub"
-              />
+              <input type="text" class="form-control" id="urlGithub" formControlName="urlGithub" />
             </div>
           </div>
 
           <div class="modal-footer">
-            <button
-              type="button"
-              id="cerrarModalEncabezado"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
+            <button type="button" id="cerrarModalEncabezado" class="btn btn-secondary" data-bs-dismiss="modal">
               Salir
             </button>
             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -230,53 +132,21 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Datos de Contacto</h5>
+      <div class="modal-header bg-primary">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: white;">Datos de Contacto</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p><a href={{persona?.urlGithub}} data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px" src="../../../assets/images/298818_logo_github_icon.png"/></a> Conoce mi repositorio</p>
-        <p><a href={{persona?.urlIn}} data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px" src="../../../assets/images/294671_linkedin_icon.png"/></a> Visita mi LinkedIn</p>
-        <p><a href="#" data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px" src="../../../assets/images/4202011_email_gmail_mail_logo_social_icon.png"/></a> Enviame un mensaje</p>
+        <p><a href={{persona?.urlGithub}} data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px"
+              src="../../../assets/images/298818_logo_github_icon.png" /></a> Conoce mi repositorio</p>
+        <p><a href={{persona?.urlIn}} data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px"
+              src="../../../assets/images/294671_linkedin_icon.png" /></a> Visita mi LinkedIn</p>
+        <p><a href="#" data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px"
+              src="../../../assets/images/4202011_email_gmail_mail_logo_social_icon.png" /></a> Enviame un mensaje</p>
       </div>
-      <!--
-      <div class="modal-body">
-        <div>
-          <a class="nav-link waves-effect waves-light">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <p><a>
-            Conoce mi repositorio
-          </a>
-          </p>
-        </div>
-
-      <div>
-        <a class="nav-link waves-effect waves-light">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-        <p><a>
-          Visita mi LinkedIn
-        </a>
-        </p>
-      </div>
-      <div>
-        <a>
-          <i class="fa-solid fa-at"></i>
-          <i class="grey-text fab fa-facebook-square fa-2x"></i>
-        </a>
-        <a><p>
-          Contactame por email
-        </p>
-        </a>
-
-      </div>
-      -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary btn-lg" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
-  </div>
-
-
+</div>

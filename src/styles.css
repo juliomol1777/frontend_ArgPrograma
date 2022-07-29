@@ -1,18 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
 *{
   margin: 0px;
   box-sizing: border-box;
 }
 
 html{
-  font-size: 62.5%;
+  font-size: 70%;
 }
 
 .mat-card {
   border: 0.1rem solid #0a66c2!important;
   border-radius: 1.5rem!important;
   margin: 1rem 1rem;
-  padding: 2rem;
+  padding: 0.3rem;
 }
 
 .mat-card#first-card {
@@ -20,41 +19,29 @@ html{
 }
 
 .profile-image {
+  display: block;
   border-radius: 50%;
   border: 0.2rem solid #0a66c2;
   width: 15rem;
   height: 15rem;
   margin-top: -11rem;
   z-index: 1;
+  max-width: 100%;
 }
 div#info-actions {
   display: flex;
 }
+
 div#info-actions button {
   margin-right: 0.8rem;
 }
 
-/*
-div#info-contact span {
-  font-size: 1rem;
-  font-weight: 400;
-}
-div#info-contact span a {
-  color: #0a66c2;
-  touch-action: manipulation;
-  text-decoration: none;
-}
-div#info-company {
-  font-size: 1.2rem;
-  font-weight: 400;
-  line-height: 1.25;
-}
-*/
 
 div#info-data {
   display: flex;
   justify-content: space-between;
 }
+
 div#info-data h1 {
   font-size: 1.6rem;
   display: inline;
@@ -63,16 +50,19 @@ div#info-data h1 {
   word-wrap: break-word;
   word-break: break-word;
 }
+
 div#info-data ul{
   width: 23rem;
   list-style: none;
   flex-shrink: 0;
 }
+
 div#info-data ul li a {
   color: black;
   display: flex;
   text-decoration: none;
 }
+
 div#info-data ul li a h2 {
   font-size: 1rem;
   font-weight: 500;
@@ -94,89 +84,74 @@ div#info-data ul li a img {
   height: 3.2rem;
   margin-right: 0.8rem;
 }
+
 ul.items-list {
   list-style: none inside;
 }
+
 ul.items-list li {
   display: flex;
   margin: 1rem 0;
 }
+
 ul.items-list li div.data-container {
   flex-grow: 1;
+  display: flex;
 }
+
+ul.items-list li div.data-container  div.list-info {
+  margin: 0 1rem;
+}
+
+ul.items-list li div.data-container  div.list-info h3 {
+  color: black;
+  margin: 1rem;
+}
+
+ul.items-list li div.data-container  div.list-info h4, ul.items-list li div.data-container a div.list-info time {
+  color: gray;
+  margin: 0 0.5rem;
+}
+
+ul.items-list li div.data-container div.list-info p {
+  color: black;
+  margin: 0 0.5;
+  font-size: 1.5rem;
+}
+
 ul.items-list li div.data-container a {
   display: flex;
   color: black;
   text-decoration: none;
 }
-ul.items-list li div.data-container a div.logo-image-container {
+
+ul.items-list li div.data-container div.logo-image-container {
+  display: flex;
+  color: black;
   margin: 1rem 0;
+  text-decoration: none;
 }
-ul.items-list li div.data-container a div.logo-image-container img.logo-image {
+
+ul.items-list li div.data-container div.logo-image-container img.logo-image {
   height: 6rem;
   width: 6rem;
 }
-ul.items-list li div.data-container a div.list-info {
-  margin: 0 1rem;
-}
-ul.items-list li div.data-container a div.list-info h3 {
-  color: black;
-  margin: 1rem;
-}
-ul.items-list li div.data-container a div.list-info h4, ul.items-list li div.data-container a div.list-info time {
-  color: gray;
-  margin: 0 0.5rem;
-}
-ul.items-list li div.data-container a div.list-info p {
-  color: black;
-  margin: 0 0.5;
-  font-size: 1.5rem;
-}
-/*
-ol.items-list {
-  list-style: none inside;
-}
-ol.items-list li div.aptitude-info a {
-  text-decoration: none;
-  color: grey;
-}
-ol.items-list li div.aptitude-info a span {
-  color: black;
-}
 
-div.achivements {
-  display: flex;
-  position: relative;
-  padding: 16px 0 0 12px;
-}
-div.achivements h3 {
-  color: #0a66c2;
-  min-width: 64px;
-  line-height: 36px;
-  margin-top: -3px;
-  padding-right: 12px;
-  font-size: 2rem;
-}
-div.achivements div.project-title h3 {
-  font-size: 1.4rem;
-  text-align: center;
-}
-div.achivements ul.project-list li {
-  display: inline;
-}
-*/
 .card-titles {
   display: flex;
   background-color: #0a66c2;
-  border-radius: 0 2rem 0 0;
+  border-radius: 0.8rem 2rem 0 0;
   max-width: 50%;
 }
+
 .card-titles h2 {
   flex: 10;
   margin: auto;
   padding-left: 1rem;
   color: white;
+  font-size: 1.8rem;
 }
+
 .card-titles .btn-edit {
   flex: 1;
   flex-direction: column;
@@ -185,14 +160,17 @@ div.achivements ul.project-list li {
   display: flex;
   text-align: end;
 }
+
 #info-img {
   display: flex;
   justify-content: center;
 }
+
 .btn-right {
   display: flex;
   align-self: flex-end;
 }
+
 .fa-button,.fa {
   color: #0a66c2;
   display: block;
@@ -203,18 +181,22 @@ div.achivements ul.project-list li {
   border-radius: 50%;
   background: white;
 }
+
 .fa-button:hover,.fa:hover {
   background: #0a66c2;
 }
+
 div#profile-background {
   display: flex;
   z-index: 1;
   border-radius: 1rem;
 }
+
 div#profile-background img {
   width: 100%;
   border-radius: 1rem;
 }
+
 .data-control{
   display: flex;
 }

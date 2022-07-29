@@ -1,146 +1,94 @@
 <article class="card mat-card">
-    <div class="card-titles">
-      <h2>Educación</h2>
-      <div *ngIf="isAdmin" class="btn-edit">
-        <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#educationForm"
+  <div class="card-titles">
+    <h2>Educación</h2>
+    <div *ngIf="isAdmin" class="btn-edit">
+      <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#educationForm"
         (click)="onNuevaEducacion()"><i class="fa fa-plus"></i></button>
-      </div>
     </div>
+  </div>
 
-    <div>
-      <ul class="items-list" id="eduList">
-        <li *ngFor="let educacion of educacionList; let i = index">
-          <div class="data-container">
-            <a href="#">
-              <div class="logo-image-container"><img id="edu-img" class="logo-image"
-                  [src]="educacion.image"></div>
-              <div class="list-info">
-                <div>
-                  <h3 id="edu-school">{{ educacion.school }} </h3>
-                  <p>
-                    <span id="edu-title">{{ educacion.title }}</span>
-                    <span id="edu-career">{{ educacion.career }}</span>
-                  </p>
-                  <p><time id="edu-start">{{ educacion.start }}</time> -
-                    <time id="edu-end">{{ educacion.end }}</time></p>
-                </div>
-              </div>
-            </a>
+  <div>
+    <ul class="items-list" id="eduList">
+      <li *ngFor="let educacion of educacionList; let i = index">
+        <div class="data-container">
+          <div class="logo-image-container"><img id="edu-img" class="logo-image" [src]="educacion.image">
           </div>
-          <div *ngIf="isAdmin" class="data-control">
-            <div class="btn-edit">
-              <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#educationForm"
+          <div class="list-info">
+            <div>
+              <h3 id="edu-school">{{ educacion.school }} </h3>
+              <p>
+                <span id="edu-title">{{ educacion.title }}</span>
+                <span id="edu-career">{{ educacion.career }}</span>
+              </p>
+              <p><time id="edu-start">{{ educacion.start }}</time> -
+                <time id="edu-end">{{ educacion.end }}</time>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="isAdmin" class="data-control">
+          <div class="btn-edit">
+            <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#educationForm"
               (click)="onEditarEducacion(i)"><i class="fa fa-pen"></i></button>
-            </div>
-            <div class="btn-edit">
-              <button class="btn btn-right" (click)="onBorrarEducacion(i)"><i class="fa fa-trash"></i>
-              </button>
-            </div>
           </div>
-        </li>
-      </ul>
-  </div>
-
-
-
-<!-- Modal -->
-<div
-  class="modal fade"
-  id="educationForm"
-  tabindex="-1"
-  aria-labelledby="educationFormLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="educationFormLabel">
-          Editar Educación
-        </h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-          <div>
-            <input type="hidden" name="id" formControlName="id">
-            <div class="mb-3">
-              <label for="school" class="form-label">Institucion</label>
-              <input
-                type="text"
-                class="form-control"
-                id="school"
-                formControlName="school"
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="title" class="form-label">Titulo</label>
-              <input
-                type="text"
-                class="form-control"
-                id="title"
-                formControlName="title"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="image" class="form-label">Logo</label>
-              <input
-                type="text"
-                class="form-control"
-                id="image"
-                formControlName="image"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="career" class="form-label"
-                >Alcances del titulo</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="career"
-                formControlName="career"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="start" class="form-label">Año de inicio</label>
-              <input
-                type="text"
-                class="form-control"
-                id="start"
-                formControlName="start"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="end" class="form-label">Año de finalizacion</label>
-              <input
-                type="text"
-                class="form-control"
-                id="end"
-                formControlName="end"
-              />
-            </div>
-          </div>
-
-          <div class="modal-footer">
-            <button
-              type="button"
-              id="cerrarModalEncabezado"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Salir
+          <div class="btn-edit">
+            <button class="btn btn-right" (click)="onBorrarEducacion(i)"><i class="fa fa-trash"></i>
             </button>
-            <button type="submit" class="btn btn-primary">Guardar</button>
           </div>
-        </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="educationForm" tabindex="-1" aria-labelledby="educationFormLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="educationFormLabel">
+            Editar Educación
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div>
+              <input type="hidden" name="id" formControlName="id">
+              <div class="mb-3">
+                <label for="school" class="form-label">Institucion</label>
+                <input type="text" class="form-control" id="school" formControlName="school" />
+              </div>
+
+              <div class="mb-3">
+                <label for="title" class="form-label">Titulo</label>
+                <input type="text" class="form-control" id="title" formControlName="title" />
+              </div>
+              <div class="mb-3">
+                <label for="image" class="form-label">Logo</label>
+                <input type="text" class="form-control" id="image" formControlName="image" />
+              </div>
+              <div class="mb-3">
+                <label for="career" class="form-label">Alcances del titulo</label>
+                <input type="text" class="form-control" id="career" formControlName="career" />
+              </div>
+              <div class="mb-3">
+                <label for="start" class="form-label">Año de inicio</label>
+                <input type="text" class="form-control" id="start" formControlName="start" />
+              </div>
+              <div class="mb-3">
+                <label for="end" class="form-label">Año de finalizacion</label>
+                <input type="text" class="form-control" id="end" formControlName="end" />
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" id="cerrarModalEncabezado" class="btn btn-secondary" data-bs-dismiss="modal">
+                Salir
+              </button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </article>

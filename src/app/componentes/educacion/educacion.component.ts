@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Educacion } from 'src/app/entidades/educacion';
-import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
 import { TokenService } from 'src/app/servicios/token.service';
 
@@ -30,11 +29,11 @@ export class EducacionComponent implements OnInit {
         })
      }
 
-     private cargarDatos(){
-      this.datosPorfolio.obtenerDatosEducacion().subscribe( data => {
-        this.educacionList = data;
-      })
-     }
+  private cargarDatos(){
+  this.datosPorfolio.obtenerDatosEducacion().subscribe( data => {
+    this.educacionList = data;
+  })
+  }
 
   ngOnInit(): void {
     this.roles = this.tokenService.getAuthorities();

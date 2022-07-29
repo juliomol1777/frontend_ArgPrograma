@@ -1,160 +1,100 @@
 <article class="card mat-card">
-    <div class="card-titles">
-      <h2>Experiencia</h2>
-      <div *ngIf="isAdmin" class="btn-edit">
-        <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#experienciaForm"
+  <div class="card-titles">
+    <h2>Experiencia</h2>
+    <div *ngIf="isAdmin" class="btn-edit">
+      <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#experienciaForm"
         (click)="onNuevaExperiencia()"><i class="fa fa-plus"></i></button>
-      </div>
     </div>
-    <div>
-      <ul class="items-list" id="expList">
-        <li *ngFor="let experiencia of experienciaList; let i = index">
-          <div class="data-container">
-            <a href="#">
-              <div class="logo-image-container"><img id="exp-img" class="logo-image"
-                  src="https://free-images.com/sm/4fef/transweb_logo_png.jpg"></div>
-              <div class="list-info">
-                <div>
-                  <h3 id="exp-position">{{experiencia.position}}</h3>
-                  <p><span id="exp-company">{{experiencia.company}}</span> - <span id="exp-mode">{{experiencia.mode}}</span></p>
-                  <h4><span id="exp-initial">{{experiencia.start}}</span> – <span id="exp-end">{{experiencia.end}}</span> - <span
-                      id="exp-time">{{experiencia.time}}</span></h4>
-                  <h4 id="exp-place">{{experiencia.place}}</h4>
-                </div>
-              </div>
-            </a>
+  </div>
+  <div>
+    <ul class="items-list" id="expList">
+      <li *ngFor="let experiencia of experienciaList; let i = index">
+        <div class="data-container">
+          <div class="logo-image-container"><img id="exp-img" class="logo-image"
+              src="https://free-images.com/sm/4fef/transweb_logo_png.jpg"></div>
+          <div class="list-info">
+            <div>
+              <h3 id="exp-position">{{experiencia.position}}</h3>
+              <p><span id="exp-company">{{experiencia.company}}</span> - <span id="exp-mode">{{experiencia.mode}}</span>
+              </p>
+              <h4><span id="exp-initial">{{experiencia.start}}</span> – <span id="exp-end">{{experiencia.end}}</span> -
+                <span id="exp-time">{{experiencia.time}}</span></h4>
+              <h4 id="exp-place">{{experiencia.place}}</h4>
+            </div>
           </div>
-          <div *ngIf="isAdmin" class="data-control">
-            <div class="btn-edit">
-              <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#experienciaForm"
+        </div>
+        <div *ngIf="isAdmin" class="data-control">
+          <div class="btn-edit">
+            <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#experienciaForm"
               (click)="onEditarExperiencia(i)"><i class="fa fa-pen"></i></button>
-            </div>
-            <div class="btn-edit">
-              <button class="btn btn-right" (click)="onBorrarExperiencia(i)"><i class="fa fa-trash"></i>
-              </button>
-            </div>
           </div>
-        </li>
-      </ul>
+          <div class="btn-edit">
+            <button class="btn btn-right" (click)="onBorrarExperiencia(i)"><i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
   <!-- Modal -->
-<div
-class="modal fade"
-id="experienciaForm"
-tabindex="-1"
-aria-labelledby="experienciaFormLabel"
-aria-hidden="true"
->
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="experienciaFormLabel">
-        Editar Experiencia
-      </h5>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="modal"
-        aria-label="Close"
-      ></button>
-    </div>
-    <div class="modal-body">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div>
-          <input type="hidden" name="id" formControlName="id">
-          <div class="mb-3">
-            <label for="school" class="form-label">Posicion</label>
-            <input
-              type="text"
-              class="form-control"
-              id="position"
-              formControlName="position"
-            />
-          </div>
-
-          <div class="mb-3">
-            <label for="title" class="form-label">Empresa</label>
-            <input
-              type="text"
-              class="form-control"
-              id="company"
-              formControlName="company"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="image" class="form-label">Modo</label>
-            <input
-              type="text"
-              class="form-control"
-              id="mode"
-              formControlName="mode"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="career" class="form-label"
-              >Tiempo</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="time"
-              formControlName="time"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="start" class="form-label">Año de inicio</label>
-            <input
-              type="text"
-              class="form-control"
-              id="start"
-              formControlName="start"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="end" class="form-label">Año de finalizacion</label>
-            <input
-              type="text"
-              class="form-control"
-              id="end"
-              formControlName="end"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="end" class="form-label">Lugar</label>
-            <input
-              type="text"
-              class="form-control"
-              id="place"
-              formControlName="place"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="image" class="form-label">url de la imagen</label>
-            <input
-              type="text"
-              class="form-control"
-              id="image"
-              formControlName="image"
-            />
-          </div>
+  <div class="modal fade" id="experienciaForm" tabindex="-1" aria-labelledby="experienciaFormLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="experienciaFormLabel">
+            Editar Experiencia
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div>
+              <input type="hidden" name="id" formControlName="id">
+              <div class="mb-3">
+                <label for="position" class="form-label">Posicion</label>
+                <input type="text" class="form-control" id="position" formControlName="position" />
+              </div>
 
-        <div class="modal-footer">
-          <button
-            type="button"
-            id="cerrarModalEncabezado"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Salir
-          </button>
-          <button type="submit" class="btn btn-primary">Guardar</button>
+              <div class="mb-3">
+                <label for="company" class="form-label">Empresa</label>
+                <input type="text" class="form-control" id="company" formControlName="company" />
+              </div>
+              <div class="mb-3">
+                <label for="mode" class="form-label">Modo</label>
+                <input type="text" class="form-control" id="mode" formControlName="mode" />
+              </div>
+              <div class="mb-3">
+                <label for="time" class="form-label">Tiempo</label>
+                <input type="text" class="form-control" id="time" formControlName="time" />
+              </div>
+              <div class="mb-3">
+                <label for="start" class="form-label">Año de inicio</label>
+                <input type="text" class="form-control" id="start" formControlName="start" />
+              </div>
+              <div class="mb-3">
+                <label for="end" class="form-label">Año de finalizacion</label>
+                <input type="text" class="form-control" id="end" formControlName="end" />
+              </div>
+              <div class="mb-3">
+                <label for="place" class="form-label">Lugar</label>
+                <input type="text" class="form-control" id="place" formControlName="place" />
+              </div>
+              <div class="mb-3">
+                <label for="image" class="form-label">url de la imagen</label>
+                <input type="text" class="form-control" id="image" formControlName="image" />
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" id="cerrarModalEncabezado" class="btn btn-secondary" data-bs-dismiss="modal">
+                Salir
+              </button>
+              <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
   </div>
-</div>
-</div>
 
-  </article>
-
+</article>

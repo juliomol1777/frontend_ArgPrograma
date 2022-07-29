@@ -17,14 +17,10 @@
                 <span>{{ aptitudes.name }}</span>
               </p>
               <figure>
-                <img src="../../../assets/images/c.svg" alt="celulares">
-                <!--
-                <img [src]="aptitudes.urlLogos" alt="celulares">
-                -->
+                <img src="../../../assets/images/c.svg" alt="">
               </figure>
-              <div class="medios-pago">
+              <div class="progress-centrar">
                 <progress  value="{{aptitudes.progress}}" max="100">
-
                 </progress>
               </div>
             </div>
@@ -48,39 +44,6 @@
     </div>
 
 </article>
-<!--
-      <ul class="items-list">
-        <li *ngFor="let aptitudes of aptitudesList; let i = index">
-
-          <div class="data-container">
-
-            <a href="#">
-              <div >
-                <p>
-                  <span>{{ aptitudes.name }}</span>
-                </p>
-                <progress value="{{aptitudes.progress}}" max="100">
-
-                </progress>
-
-                <div class="progress">
-                  <div
-                    class="progress-bar progress-bar-striped bg-success"
-                    role="progressbar"
-                    style="width: 75%"
-                    [attr.aria-valuenow]="aptitudes.progress"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-
-              </div>
-            </a>
-            <div class="logo-image-container">
-              <img id="edu-img" class="logo-image" [src]="aptitudes.urlLogos">
-            </div>
-          </div>
-           -->
 <!-- Modal -->
 <div class="modal fade" id="aptitudesForm" tabindex="-1" aria-labelledby="aptitudesFormLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -96,16 +59,16 @@
           <div>
             <input type="hidden" name="id" formControlName="id" />
             <div class="mb-3">
-              <label for="school" class="form-label">Nombre</label>
+              <label for="name" class="form-label">Nombre</label>
               <input type="text" class="form-control" id="name" formControlName="name" />
             </div>
 
             <div class="mb-3">
-              <label for="title" class="form-label">Progreso</label>
+              <label for="progress" class="form-label">Progreso</label>
               <input type="text" class="form-control" id="progress" formControlName="progress" />
             </div>
             <div class="mb-3">
-              <label for="title" class="form-label">Logos de lenguajes de programacion</label>
+              <label for="urlLogos" class="form-label">Logos de lenguajes de programacion</label>
               <input type="text" class="form-control" id="urlLogos" formControlName="urlLogos" />
             </div>
 

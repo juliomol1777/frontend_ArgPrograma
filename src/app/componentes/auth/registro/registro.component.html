@@ -1,14 +1,16 @@
 <div class="text-center" *ngIf="isLogged; else loggedOut">
   <h2>Ya has iniciado sesión</h2>
+  <button type="button" class="btn btn-outline-primary btn-lg"
+    routerLink="/porfolio">Salir</button>
 </div>
 
 <ng-template #loggedOut>
-  <div class="container d-flex justify-content-center">
+  <div class="container d-flex justify-content-center centrar-vertical">
       <div class="card">
-          <div class="card-header">
+          <div class="card-header bg-primary">
               <ul class="nav nav-tabs">
                   <li class="nav-item">
-                    <a class="nav-link" routerLink="/login">Iniciar Sesión</a>
+                    <a class="nav-link" style="color: white;"  routerLink="/login">Iniciar Sesión</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" routerLink="/registro">Crear Cuenta</a>
@@ -39,8 +41,10 @@
                 [(ngModel)]="email" required>
             </div>
               <div class="form-group">
-                  <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                      <i class="fas fa-sign-in-alt"></i> Crear Cuenta</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-largo mt-3" [disabled]="!f.valid">
+                  Crear Cuenta</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-largo ms-3 mt-3"
+                  routerLink="/porfolio">Salir</button>
               </div>
           </form>
           </div>

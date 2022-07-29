@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Persona } from 'src/app/entidades/persona';
-import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { PorfolioService } from 'src/app/servicios/porfolio.service';
 import { TokenService } from 'src/app/servicios/token.service';
 
@@ -14,7 +13,6 @@ export class AcercaDeComponent implements OnInit {
 
 
   persona!:Persona; //el signo ! es para usar sin inicializar
-  //usuarioAutenticado:Boolean = false;//al inicio   debe estar en false
   form:FormGroup;
   isAdmin = false;
   roles!: string[];
@@ -85,32 +83,6 @@ export class AcercaDeComponent implements OnInit {
     this.limpiarForm();
   }
 
-  /*
-  guardarDatosAcercaDe(){
-    if (this.form.valid)
-    {
-      let fullname=this.form.get("fullName")?.value;
-      let position=this.form.get("position")?.value;
-      let ubication=this.form.get("ubication")?.value;
-      let about=this.form.get("about")?.value;
-      let url=this.form.get("url")?.value;
-      let image_background=this.form.get("image_background")?.value;
-      let email=this.form.get("email")?.value;
-
-      let personaEditar=new Persona(this.persona.id,fullname,position,ubication, about, url, image_background, email);
-      this.datosPorfolio.editarDatosPersona(personaEditar).subscribe({next: (d) => {
-        this.persona=personaEditar;
-        document.getElementById("cerrarModalEncabezado")?.click();
-      },
-        error:(e)=> {alert("Ups, no se puedo actualizar el registro.")}
-      })
-    }
-    else{
-      //alert("Hay errores");
-      this.form.markAllAsTouched();
-    }
-  }
-  */
   onSubmit() {
     let perso: Persona = this.form.value;
     if (this.form.get('id')?.value == '') {

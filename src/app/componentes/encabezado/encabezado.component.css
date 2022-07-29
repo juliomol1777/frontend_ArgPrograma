@@ -4,7 +4,6 @@
 
 .nav-item a:hover {
   color: #0250c9;
-
 }
 
 .navbar-brand{
@@ -12,7 +11,36 @@
   margin: 1rem;
 }
 
+.navbar{
+  position: fixed;
+  width: 100%;
+}
+
 .navbar-nav{
   font-size: 200%;
+}
+
+.logo-ap{
+  width: 7rem;
+  max-width: 8rem;
+  border: 0.2rem solid #0250c9;
+  border-radius: 20%;
+}
+
+.container-logo-ap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-logo-ap h2{
+  color: #0250c9;
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+
+.logo-ap img{
+  display: block;
+  width: 100%;
 }
 

@@ -1,5 +1,6 @@
 *{
   margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
 
@@ -18,16 +19,23 @@ html{
   padding: 0;
 }
 
+#info-img {
+  width: 18rem;
+  max-width: 18rem;
+  height: 18rem;
+  max-height: 18rem;
+  margin-top: -6rem;
+  z-index: 1;
+}
+
+
 .profile-image {
   display: block;
+  width: 100%;
   border-radius: 50%;
   border: 0.2rem solid #0a66c2;
-  width: 15rem;
-  height: 15rem;
-  margin-top: -11rem;
-  z-index: 1;
-  max-width: 100%;
 }
+
 div#info-actions {
   display: flex;
 }
@@ -39,7 +47,8 @@ div#info-actions button {
 
 div#info-data {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  margin-top: -6rem;
 }
 
 div#info-data h1 {
@@ -159,11 +168,6 @@ ul.items-list li div.data-container div.logo-image-container img.logo-image {
   justify-content: flex-end;
   display: flex;
   text-align: end;
-}
-
-#info-img {
-  display: flex;
-  justify-content: center;
 }
 
 .btn-right {

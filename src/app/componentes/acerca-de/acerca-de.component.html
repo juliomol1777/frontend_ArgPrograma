@@ -9,7 +9,7 @@
         <img id="info-user-img" class="profile-image" [src]="persona?.image" />
       </div>
       <div id="info-data">
-        <div>
+
           <h1 id="info-name">{{ persona?.fullname }}</h1>
           <div>
             <span id="info-position">{{ persona?.position }}</span>
@@ -31,17 +31,17 @@
             (click)="onEditarDatosAcercaDe()">
             <i class="fa fa-pen"></i>
           </button>
-          <button class="btn btn-right" (click)="onBorrarDatosAcercaDe()">
+          <button style="display: none;" class="btn btn-right" (click)="onBorrarDatosAcercaDe()">
             <i class="fa fa-trash"></i>
           </button>
         </div>
-      </div>
+
     </div>
 
     <div class="card mat-card col-card-item-second">
       <div class="card-titles">
         <h2>Acerca de mi</h2>
-        <div *ngIf="isAdmin" class="btn-edit">
+        <div style="display: none;" *ngIf="isAdmin" class="btn-edit">
           <button class="btn btn-right" data-bs-toggle="modal" data-bs-target="#modalEncabezado"
             (click)="onNuevoDatosAcercaDe()">
             <i class="fa fa-plus"></i>
@@ -139,10 +139,10 @@
       <div class="modal-body">
         <p><a href={{persona?.urlGithub}} data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px"
               src="../../../assets/images/298818_logo_github_icon.png" /></a> Conoce mi repositorio</p>
-        <p><a href={{persona?.urlIn}} data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px"
+        <p><a href={{persona?.urlIn}} data-bs-toggle="tooltip" title="Tooltip"><img width="60px" height="50px"
               src="../../../assets/images/294671_linkedin_icon.png" /></a> Visita mi LinkedIn</p>
-        <p><a href="#" data-bs-toggle="tooltip" title="Tooltip"><img width="50px" height="40px"
-              src="../../../assets/images/4202011_email_gmail_mail_logo_social_icon.png" /></a> Enviame un mensaje</p>
+        <p><img width="50px" height="40px" src="../../../assets/images/4202011_email_gmail_mail_logo_social_icon.png"/>
+              {{persona.email}}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary btn-lg" data-bs-dismiss="modal">Cerrar</button>

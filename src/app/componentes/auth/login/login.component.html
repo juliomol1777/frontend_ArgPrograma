@@ -1,6 +1,6 @@
 <div class="text-center" *ngIf="isLogged; else loggedOut">
   <h2>Ya has iniciado sesión</h2>
-  <button type="button" class="btn btn-outline-primary btn-lg"
+  <button class="btn btn-outline-primary btn-lg"
     routerLink="/porfolio">Salir</button>
 </div>
 
@@ -31,9 +31,9 @@
                       [(ngModel)]="password" required>
                   </div>
                   <div class="form-group">
-                    <button type="button" class="btn btn-outline-primary btn-lg btn-largo mt-3" [disabled]="!f.valid">
+                    <button class="btn btn-outline-primary btn-lg btn-largo mt-3" [disabled]="!f.valid">
                         Iniciar Sesión</button>
-                      <button type="button" class="btn btn-outline-primary btn-lg btn-largo ms-3 mt-3"
+                      <button class="btn btn-outline-primary btn-lg btn-largo ms-3 mt-3"
                         routerLink="/porfolio">Salir</button>
                     </div>
               </form>

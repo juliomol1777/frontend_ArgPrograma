@@ -18,10 +18,11 @@ export class RegistroComponent implements OnInit {
   password!: string;
   errMsj!: string;
   isLogged = false;
+  isLoginFail=false;
 
   constructor(private tokenService: TokenService,
     private authService: AutenticacionService,
-    private router: Router,) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
@@ -33,9 +34,11 @@ export class RegistroComponent implements OnInit {
     this.nuevoUsuario = new NuevoUsuario(this.nombre, this.nombreUsuario, this.email, this.password);
     this.authService.nuevo(this.nuevoUsuario).subscribe({
       next:data => {
+        this.isLoginFail = false;
         this.router.navigate(['/login']);
       },
       error:err => {
+        this.isLoginFail = true;
         this.errMsj = err.error.mensaje;
         //console.log(err.error.message);
       }

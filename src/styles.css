@@ -24,19 +24,34 @@ html{
   max-width: 15rem;
   height: 15rem;
   max-height: 15rem;
-  margin-top: -6rem;
+  margin-top: -8.5rem;
   z-index: 1;
 }
 
-@media only screen and (max-width: 680px){
+/* Tablet*/
+@media screen and (max-width: 768px) {
   #info-img {
-    width: 9rem;
-    max-width: 9rem;
-    height: 9rem;
-    max-height: 9rem;
-    margin-top: -4rem;
-    z-index: 1;
+    width: 10rem;
+    max-width: 10rem;
+    height: 10rem;
+    max-height: 10rem;
+    margin-top: -5rem;
   }
+}
+
+/* Mobile */
+@media screen and (max-width: 360px) {
+  #info-img {
+    width: 7.8rem;
+    max-width: 7.8rem;
+    height: 7.8rem;
+    max-height: 7.8rem;
+    margin-top: -3.5rem;
+  }
+  html{
+    font-size: 50%;
+  }
+
 }
 
 .profile-image {
@@ -58,9 +73,28 @@ div#info-actions button {
 div#info-data {
   display: flex;
   flex-direction: column;
-  margin-top: -6rem;
+  margin-top: -5rem;
   margin-left: 1rem;
   margin-bottom: 1rem;
+}
+
+/* Mobile */
+@media screen and (max-width: 360px) {
+  div#info-data {
+    margin: 0!important;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+  }
+  div#info-data h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablet*/
+@media screen and (max-width: 768px) {
+  div#info-data {
+    margin-top: -3.5rem;
+  }
 }
 
 div#info-data h1 {
@@ -163,6 +197,13 @@ ul.items-list li div.data-container div.logo-image-container img.logo-image {
   background-color: #0a66c2;
   border-radius: 0.8rem 2rem 0 0;
   max-width: 50%;
+}
+
+/* Mobile */
+@media screen and (max-width: 360px) {
+  .card-titles {
+    max-width: 80%;
+  }
 }
 
 .card-titles h2 {

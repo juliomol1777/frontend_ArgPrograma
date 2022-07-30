@@ -61,3 +61,14 @@ progress{
   height: 20px;
   margin: auto;
 }
+
+/* Mobile */
+@media screen and (max-width: 360px) {
+  progress{
+    width: 80%;
+    height: 10px;
+  }
+  figure img{
+    height: 70px;
+  }
+}

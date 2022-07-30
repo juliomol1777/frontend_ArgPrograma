@@ -24,3 +24,31 @@
   margin-right: 1.5rem;
 }
 
+.btn{
+  width: 50%;
+}
+
+/* Mobile */
+@media screen and (max-width: 360px) {
+  .btn{
+    width: 8.5rem;
+    height: 2.2rem;
+    font-size: smaller;
+  }
+  .col-card-item-first{
+    width: 45%;
+  }
+
+  .col-card-item-second{
+    width: 55%;
+  }
+}
+
+/* Tablet*/
+@media screen and (max-width: 768px) {
+  .btn{
+    width: 6rem;
+    height: 2.2rem;
+    font-size: smaller;
+  }
+}

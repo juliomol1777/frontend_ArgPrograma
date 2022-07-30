@@ -21,8 +21,8 @@
 }
 
 .logo-ap{
-  width: 7rem;
-  max-width: 8rem;
+  width: 6rem;
+  max-width: 6rem;
   border: 0.2rem solid #0250c9;
   border-radius: 20%;
 }
@@ -35,8 +35,8 @@
 
 .container-logo-ap h2{
   color: #0250c9;
-  font-size: 2rem;
-  margin-left: 2rem;
+  font-size: 1.7rem;
+  margin-left: 1.5rem;
 }
 
 .logo-ap img{

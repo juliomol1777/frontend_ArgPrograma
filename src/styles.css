@@ -20,14 +20,24 @@ html{
 }
 
 #info-img {
-  width: 18rem;
-  max-width: 18rem;
-  height: 18rem;
-  max-height: 18rem;
+  width: 15rem;
+  max-width: 15rem;
+  height: 15rem;
+  max-height: 15rem;
   margin-top: -6rem;
   z-index: 1;
 }
 
+@media only screen and (max-width: 680px){
+  #info-img {
+    width: 9rem;
+    max-width: 9rem;
+    height: 9rem;
+    max-height: 9rem;
+    margin-top: -4rem;
+    z-index: 1;
+  }
+}
 
 .profile-image {
   display: block;
@@ -49,6 +59,8 @@ div#info-data {
   display: flex;
   flex-direction: column;
   margin-top: -6rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 
 div#info-data h1 {

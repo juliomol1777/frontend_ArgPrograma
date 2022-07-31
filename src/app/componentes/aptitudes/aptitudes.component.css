@@ -8,7 +8,7 @@ ul{
 
 ul li{
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
 }
 
 .cards-categorias{
@@ -45,8 +45,8 @@ figure img{
 }
 
 .tarjeta p{
-  height: 2rem;
-  max-height: 2rem;
+  height: 1.5rem;
+  max-height: 1.5rem;
   font-size: 1.3rem;
   text-align: center;
 }
@@ -80,6 +80,6 @@ progress{
 @media screen and (max-width: 768px) {
   ul li{
     width: 100%;
-    max-width: 250px;
+    max-width: 200px;
   }
 }

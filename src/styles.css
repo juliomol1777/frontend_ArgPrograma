@@ -76,7 +76,6 @@ div#info-actions button {
 div#info-data {
   display: flex;
   flex-direction: column;
-  margin-top: -5rem;
   margin-left: 1rem;
   margin-bottom: 1rem;
 }
@@ -93,12 +92,12 @@ div#info-data {
   }
 }
 
-/* Tablet*/
+/* Tablet
 @media screen and (max-width: 768px) {
   div#info-data {
-    margin-top: -3.5rem;
+
   }
-}
+}*/
 
 div#info-data h1 {
   font-size: 1.6rem;
@@ -158,7 +157,7 @@ ul.items-list li div.data-container {
 }
 
 ul.items-list li div.data-container  div.list-info {
-  margin: 0 1rem;
+  margin: 1rem;
 }
 
 ul.items-list li div.data-container  div.list-info h3 {
@@ -173,7 +172,7 @@ ul.items-list li div.data-container  div.list-info h4, ul.items-list li div.data
 
 ul.items-list li div.data-container div.list-info p {
   color: black;
-  margin: 0 0.5;
+  margin: 1rem;
   font-size: 1.5rem;
 }
 
@@ -212,7 +211,7 @@ ul.items-list li div.data-container div.logo-image-container img.logo-image {
 /* Tablet*/
 @media screen and (max-width: 768px) {
   .card-titles {
-    max-width: 70%;
+    max-width: 60%;
   }
 }
 

@@ -24,17 +24,14 @@
   margin-right: 1.5rem;
 }
 
+
 .btn{
   width: 50%;
+  margin-top: 0.5rem;
 }
 
 /* Mobile */
-@media screen and (max-width: 360px) {
-  .btn{
-    width: 8.5rem;
-    height: 2.2rem;
-    font-size: smaller;
-  }
+@media screen and (max-width: 450px) {
   .col-card-item-first{
     width: 45%;
   }
@@ -42,13 +39,26 @@
   .col-card-item-second{
     width: 55%;
   }
+
+  .btn{
+    width: 70%;
+  }
+
 }
 
 /* Tablet*/
 @media screen and (max-width: 768px) {
+  .col-card-item-first{
+    width: 40%;
+  }
+
+  .col-card-item-second{
+    width: 60%;
+  }
+
   .btn{
-    width: 6rem;
-    height: 2.2rem;
-    font-size: smaller;
+    width: 70%;
   }
 }
+
+

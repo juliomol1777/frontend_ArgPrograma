@@ -37,15 +37,18 @@ html{
     max-height: 10rem;
     margin-top: -5rem;
   }
+  html{
+    font-size: 62.5%;
+  }
 }
 
 /* Mobile */
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 450px) {
   #info-img {
-    width: 7.8rem;
-    max-width: 7.8rem;
-    height: 7.8rem;
-    max-height: 7.8rem;
+    width: 8.5rem;
+    max-width: 8.5rem;
+    height: 8.5rem;
+    max-height: 8.5rem;
     margin-top: -3.5rem;
   }
   html{
@@ -200,9 +203,16 @@ ul.items-list li div.data-container div.logo-image-container img.logo-image {
 }
 
 /* Mobile */
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 450px) {
   .card-titles {
     max-width: 80%;
+  }
+}
+
+/* Tablet*/
+@media screen and (max-width: 768px) {
+  .card-titles {
+    max-width: 70%;
   }
 }
 

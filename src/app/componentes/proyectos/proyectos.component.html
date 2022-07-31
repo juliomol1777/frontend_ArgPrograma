@@ -11,8 +11,8 @@
       <li *ngFor="let proyecto of proyectosList; let i = index">
         <div class="data-container">
           <div class="logo-image-container logo-repo">
-            <img id="edu-img" class="logo-image" src="../../../assets/images/trabajo-2.svg">
-            <a href="#">
+            <img id="edu-img" class="logo-image" [src]="proyecto.image">
+            <a href="https://github.com/juliomol1777">
               <button type="button" class="btn btn-outline-primary">
                 Repositorio
               </button>
@@ -62,7 +62,10 @@
                 <label for="info" class="form-label">Detalles</label>
                 <input type="text" class="form-control" id="info" formControlName="info" />
               </div>
-
+              <div class="mb-3">
+                <label for="image" class="form-label">url del logo</label>
+                <input type="text" class="form-control" id="image" formControlName="image" />
+              </div>
               <div class="modal-footer">
                 <button type="button" id="cerrarModalEncabezado" class="btn btn-secondary" data-bs-dismiss="modal">
                   Salir

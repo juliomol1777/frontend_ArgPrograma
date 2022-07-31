@@ -22,7 +22,7 @@ export class EducacionComponent implements OnInit {
         id: [''],
         school:['',[Validators.required]],
         title:['',[Validators.required]],
-        image:['',[Validators.required]],
+        image:['https://',[Validators.required, Validators.pattern('https?://.+')]],
         career:['',[Validators.required]],
         start:['',[Validators.required]],
         end:['',[Validators.required]]

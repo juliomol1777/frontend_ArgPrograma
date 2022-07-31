@@ -11,7 +11,7 @@
       <li *ngFor="let experiencia of experienciaList; let i = index">
         <div class="data-container">
           <div class="logo-image-container"><img id="exp-img" class="logo-image"
-              src="https://free-images.com/sm/4fef/transweb_logo_png.jpg"></div>
+              [src]="experiencia.image"></div>
           <div class="list-info">
             <div>
               <h3 id="exp-position">{{experiencia.position}}</h3>

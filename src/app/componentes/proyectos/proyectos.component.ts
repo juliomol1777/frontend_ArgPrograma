@@ -21,7 +21,8 @@ export class ProyectosComponent implements OnInit {
     this.form=this.miFormBuilder.group({
       id: [''],
       name:['',[Validators.required]],
-      info:['',[Validators.required]]
+      info:['',[Validators.required]],
+      image:['https://',[Validators.required, Validators.pattern('https?://.+')]]
       })
    }
 
@@ -45,7 +46,8 @@ export class ProyectosComponent implements OnInit {
     this.form.setValue({
       id:'',
       name: '',
-      info: ''
+      info: '',
+      image:''
     })
   }
 
@@ -89,7 +91,8 @@ export class ProyectosComponent implements OnInit {
     this.form.setValue({
       id: proyecto.id,
       name: proyecto.name,
-      info: proyecto.info
+      info: proyecto.info,
+      image:proyecto.image
     })
   }
 
